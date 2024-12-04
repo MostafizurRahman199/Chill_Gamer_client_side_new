@@ -157,7 +157,7 @@ const MyReviews = () => {
 }, []);
 
 if(loading){
-  return <div className="min-h-screen flex items-center justify-center">
+  return <div className="min-h-screen flex items-center justify-center bg-[#151515] ">
   <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#A91D3A]"></div>
 </div>
 }

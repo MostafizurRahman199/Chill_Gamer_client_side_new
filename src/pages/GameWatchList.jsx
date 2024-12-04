@@ -9,17 +9,20 @@ import Aos from 'aos';
 const GameWatchList = () => {
   const { user } = useFirebaseAuth();
   const email = user?.email;
+  const[loading, setLoading] = useState(false);
 
   const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     if (email) {
+      setLoading(true);
       axios
         .get(`http://localhost:5000/watchlist/${email}`)
         .then((response) => {
          
           if (Array.isArray(response.data)) {
             setWatchlist(response.data);
+            setLoading(false);
           } else {
             console.error('Error: The response data is not an array');
           }
@@ -70,6 +73,12 @@ const GameWatchList = () => {
     Aos.init({ duration: 1000 });
 }, []);
 
+
+if(loading){
+  return <div className="min-h-screen flex items-center justify-center bg-[#151515] ">
+  <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#A91D3A]"></div>
+</div>
+}
 
   return (
     <div className=" mx-auto px-4 py-8  bg-[#151515] min-h-screen">

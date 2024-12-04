@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add this to your CSS file or in a <style> block */
+.text-shadow-strong {
+    text-shadow: 0px 6px 12px rgba(169, 29, 58, 0.8);
+  }
+  

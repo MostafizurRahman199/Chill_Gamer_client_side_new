@@ -1,6 +1,8 @@
 import React from 'react'
 import Banner from './Banner'
 import Reviews from './Reviews'
+import HightestRatedGame from './HightestRatedGame'
+import TopReviewers from './TopReviewers'
 
 
 const Home = () => {
@@ -11,6 +13,8 @@ const Home = () => {
         <BrandSell />
         <FeaturedCategories />
         <WhyChooseUs /> */}
+        <HightestRatedGame></HightestRatedGame>
+        <TopReviewers></TopReviewers>
         <Reviews />
     </div>
   )

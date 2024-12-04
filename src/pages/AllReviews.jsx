@@ -27,11 +27,12 @@ const AllReviews = () => {
 }, []);
 
   return (
-    <div className="bg-[#151515] text-white min-h-screen py-12 ">
+    <div className="bg-[#151515] text-white min-h-screen py-12 " >
       <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:w-10/12 mx-auto">
         {reviews.map((review) => (
-          <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-lg p-6 hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" data-aos="fade-up">
+          <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-lg p-6 hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" >
+            <div data-aos="fade-up">
             <img
               src={review.gameCover}
               alt={review.gameTitle}
@@ -46,6 +47,7 @@ const AllReviews = () => {
             <Link to={`/reviewDetails/${review._id}`} className="mt-4 inline-block px-6 py-2 bg-[#A91D3A] text-white rounded-md hover:bg-[#9c1631] transition-all duration-300">
               Explore Details
             </Link>
+            </div>
           </div>
         ))}
       </div>

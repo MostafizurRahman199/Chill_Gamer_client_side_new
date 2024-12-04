@@ -16,6 +16,7 @@ import AllReviews from "../pages/AllReviews";
 import AddReviews from "../pages/AddReviews";
 import MyReviews from "../pages/MyReviews";
 import GameWatchList from "../pages/GameWatchList";
+import ReviewDetails from "../pages/ReviewDetails";
 
 const router = createBrowserRouter([    
     {
@@ -57,7 +58,19 @@ const router = createBrowserRouter([
                         <AllReviews></AllReviews>
                     </>
                 ),
-                // loader: () => fetch('/brands.json'),
+               
+            },
+            {
+                path: "/reviewDetails/:id",
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Chill Game - Review Details</title>
+                        </Helmet>
+                        <ReviewDetails></ReviewDetails>
+                    </>
+                ),
+               
             },
            
             {

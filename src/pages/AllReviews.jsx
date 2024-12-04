@@ -33,6 +33,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -68,9 +69,9 @@ const AllReviews = () => {
               <span className="text-[#A91D3A]">Rating: {review.rating}</span>
               <span className="text-gray-400">{review.year}</span>
             </div>
-            <a href={`/reviews/${review._id}`} className="mt-4 inline-block px-6 py-2 bg-[#A91D3A] text-white rounded-md hover:bg-[#9c1631] transition-all duration-300">
+            <Link to={`/reviewDetails/${review._id}`} className="mt-4 inline-block px-6 py-2 bg-[#A91D3A] text-white rounded-md hover:bg-[#9c1631] transition-all duration-300">
               Explore Details
-            </a>
+            </Link>
           </div>
         ))}
       </div>

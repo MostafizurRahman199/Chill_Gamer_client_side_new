@@ -25,9 +25,13 @@ const GameWatchList = () => {
             setLoading(false);
           } else {
             console.error('Error: The response data is not an array');
+            setLoading(false);
           }
         })
-        .catch((error) => console.error("Error fetching watchlist: ", error));
+        .catch((error) => {
+          setLoading(false);
+          console.error("Error fetching watchlist: ", error)});
+          
     }
   }, [email]);
 

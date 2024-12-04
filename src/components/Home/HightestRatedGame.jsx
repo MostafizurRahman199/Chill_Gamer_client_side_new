@@ -26,7 +26,7 @@ const HightestRatedGame = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-[#A91D3A] text-center mb-6">Highest Rated Games</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6  ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6  ">
         {games.map((review) => (
            <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-lg p-6 shadow-[#A91D3A] hover:scale-105 transition-all duration-300" >
            <div data-aos="fade-up">

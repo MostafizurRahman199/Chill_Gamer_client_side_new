@@ -40,6 +40,7 @@ const MyReviews = () => {
         })
         .catch(error => {
           console.error('Error fetching reviews:', error);
+          setLoading(false)
         });
     }
   }, [email]);

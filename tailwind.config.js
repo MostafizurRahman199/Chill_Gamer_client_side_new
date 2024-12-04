@@ -10,6 +10,9 @@ export default withMT({
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
+      boxShadow: {
+        'custom': '0px 4px 20px rgba(169, 29, 58, 0.8)', // Custom shadow color
+      },
     },
   },
   plugins: [

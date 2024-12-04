@@ -3,6 +3,9 @@ import Swal from 'sweetalert2';  // SweetAlert for confirmation
 import axios from 'axios';  // Axios for making API requests
 import contactImage2 from "../../assets/contact6.png"
 import { IoIosSend } from 'react-icons/io';
+import send from "../../../public/send.json"
+import Lottie from "lottie-react";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +13,18 @@ const Contact = () => {
     email: '',
     message: ''
   });
+
+
+//   ________________animation start
+
+
+
+  const style = {
+    height: 30,
+  };
+  
+
+
 
   // Handle form input change
   const handleInputChange = (e) => {
@@ -142,7 +157,10 @@ const Contact = () => {
             type="submit"
             className="w-full py-3 bg-[#A91D3A] text-white text-xl font-semibold rounded-lg hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center gap-2"
           >
-            Send <IoIosSend className='text-2xl' />
+            Send  <Lottie
+      animationData={send}
+      style={style}
+    />
           </button>
         </form>
       </div>

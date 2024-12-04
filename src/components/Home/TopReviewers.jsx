@@ -57,15 +57,15 @@ const TopReviewers = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8  ">
+    <div className="w-full mx-auto px-4 py-8  bg-[#000000] my-20">
       <h1 className="text-3xl font-bold text-[#A91D3A] text-center mb-6">Top 5 Reviewers</h1>
       <div className="flex flex-wrap mx-auto justify-center gap-4 ">
         {topReviewers.map((reviewer, index) => (
-         <div className='mask mask-hexagon-2 p-1 bg-[#A91D3A] shadow-2xl'>
+         <div className='mask mask-hexagon-2  bg-[#A91D3A] shadow-2xl'>
 
 <div
           key={index}
-          className="bg-[#1A1A1A] rounded-lg  p-20 shadow-custom hover:scale-105 transition-all duration-300 mask mask-hexagon-2"
+          className="bg-[#1A1A1A] rounded-lg  p-20 shadow-custom hover:scale-95 transition-all duration-300 mask mask-hexagon-2"
         >
          
           <div className="flex justify-center mb-1  ">

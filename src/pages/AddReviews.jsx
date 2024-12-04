@@ -76,12 +76,12 @@ const AddReview = () => {
 }, []);
 
   return (
-<div className='bg-[#151515] text-white min-h-screen mx-auto py-20'>
+<div className=' text-white min-h-screen mx-auto py-20'>
   <h2 className="text-3xl font-bold text-[#A91D3A] text-center ">Add New Review</h2>
 
-  <div className="max-w-4xl mx-auto p-8 rounded-2xl shadow-2xl shadow-[#A91D3A]  flex flex-col md:flex-row " data-aos='zoom-in'>
+  <div className="bg-[#151515] max-w-4xl mx-auto p-8 rounded-2xl shadow-2xl shadow-[#A91D3A]  flex flex-col md:flex-row " data-aos='zoom-in'>
 
-    <form onSubmit={handleSubmit} className="space-y-6 md:flex-1">
+    <form onSubmit={handleSubmit} className="space-y-6 md:flex-1 ">
       {/* Game Cover URL */}
       <div className='flex flex-col md:flex-row gap-4'>
         <div className="mb-4 flex-1">

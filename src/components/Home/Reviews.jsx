@@ -37,14 +37,14 @@ const Reviews = () => {
   )
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="w-full  py-8">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
         <span className="text-[#A91D3A]">Gamer</span>{" "}
         <span className="text-[#151515]">Reviews</span>
       </h2>
 
       <Marquee
-        gradient={true}
+        gradient={false}
         speed={50}
         pauseOnHover={true}
         className=" py-2 md:py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:h-[400px]"
@@ -53,7 +53,7 @@ const Reviews = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl shadow-lg border border-[#A91D3A]  p-6 flex flex-col items-center text-center transition-transform hover:scale-105 mx-2 hover:border-[#151515]"
+              className="bg-[#151515] rounded-3xl shadow-lg border border-[#A91D3A]  p-6 flex flex-col items-center text-center transition-transform hover:scale-105 mx-2 hover:border-[#151515]"
               style={{
                 minWidth: "280px",
                 maxWidth: "280px",
@@ -89,7 +89,7 @@ const Reviews = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill={
                       starIndex < Math.floor(review.rating)
-                        ? "#151515"
+                        ? "#A91D3A"
                         : "#E4E4E4"
                     }
                     viewBox="0 0 24 24"

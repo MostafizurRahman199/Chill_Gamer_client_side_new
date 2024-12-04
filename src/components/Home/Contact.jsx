@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';  // SweetAlert for confirmation
 import axios from 'axios';  // Axios for making API requests
-import contactImage from "../../assets/contact.png"
+import contactImage2 from "../../assets/contact6.png"
+import { IoIosSend } from 'react-icons/io';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,6 +34,12 @@ const Contact = () => {
           icon: 'success',
           confirmButtonColor: '#A91D3A',  // Custom color theme
         });
+
+       setFormData({
+        name: '',
+        email: '',
+        message: ''
+       })
       })
       .catch((error) => {
         Swal.fire({
@@ -45,13 +52,16 @@ const Contact = () => {
   };
 
   return (
-    <div className=" w-10/12 mx-auto flex flex-col items-center justify-center md:flex-row min-h-screen">
+    <div className="w-full md:w-10/12  mx-auto flex flex-col items-center justify-center md:flex-row min-h-[600px]  border-2 border-[#A91D3A] md:rounded-3xl bg-[#151515] shadow-custom">
    
-      <div className="flex-1 p-20">
+           
+
+
+      <div className="flex-1 ">
         <img
-          src={contactImage} 
+          src={contactImage2} 
           alt="Contact Us"
-          className="w-full h-full object-cover"
+          className="w-full h-[599px] object-cover rounded-l-3xl"
         />
       </div>
 
@@ -62,7 +72,7 @@ const Contact = () => {
           onSubmit={handleSubmit}
         > */}
         <form
-          className="w-full max-w-lg  p-6 rounded-lg"
+          className="w-full max-w-lg p-1 md:p-6 rounded-l-lg "
           onSubmit={handleSubmit}
         >
           <h2 className="text-3xl font-semibold text-[#A91D3A] text-center mb-4">Contact Us</h2>
@@ -130,9 +140,9 @@ const Contact = () => {
       
           <button
             type="submit"
-            className="w-full py-3 bg-[#A91D3A] text-white text-xl font-semibold rounded-lg hover:bg-[#9c1631] transition-all duration-300"
+            className="w-full py-3 bg-[#A91D3A] text-white text-xl font-semibold rounded-lg hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center gap-2"
           >
-            Submit
+            Send <IoIosSend className='text-2xl' />
           </button>
         </form>
       </div>

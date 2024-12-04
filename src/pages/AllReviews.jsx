@@ -27,7 +27,7 @@ const AllReviews = () => {
 }, []);
 
   return (
-    <div className="bg-[#151515] text-white min-h-screen py-12 " >
+    <div className=" text-white min-h-screen py-12 " >
       <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:w-10/12 mx-auto">
         {reviews.map((review) => (

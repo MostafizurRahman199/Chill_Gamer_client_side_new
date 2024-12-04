@@ -7,3 +7,17 @@
     text-shadow: 0px 6px 12px rgba(169, 29, 58, 0.8);
   }
   
+
+  /* Light Mode */
+body.light-mode {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Dark Mode */
+  body.dark-mode {
+    background-color: #1a1919;
+    color: #999;
+    transition: background-color 0.3s ease;
+  }

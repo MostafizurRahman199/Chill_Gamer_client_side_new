@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useFirebaseAuth } from "../Auth/AuthProvider";
 import { FaSpinner } from "react-icons/fa";
+import { ThemeProvider } from "../Auth/ThemeContext";
 
 const MainLayout = () => {
   const { user, loading } = useFirebaseAuth();
@@ -20,11 +21,13 @@ const MainLayout = () => {
         </div>
       ) : (
         <>
-        <Navbar />
+    
+          <Navbar />
           <div className="pt-16">
             <Outlet />
           </div>
           <Footer />
+     
         </>
       )}
     </div>

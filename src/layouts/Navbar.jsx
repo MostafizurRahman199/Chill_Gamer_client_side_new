@@ -10,21 +10,21 @@ import { MdAddBox } from 'react-icons/md';
 import { VscOpenPreview } from 'react-icons/vsc';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import { CgProfile } from 'react-icons/cg';
+import DarkModeToggle from '../components/Home/DarkModeToggle';
+
 
 
 const Navbar = () => {
 
   
   // ___________________________hooks
-
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [activeLink, setActiveLink] = React.useState(location.pathname);
   const { user, logOut, loading } = useFirebaseAuth();
   const navigate = useNavigate();
-
-  // console.log(user.photoURL);
-
+  
+  
 
 
 
@@ -167,6 +167,10 @@ const Navbar = () => {
               </span>
             </Link>
           </div>
+
+        <DarkModeToggle></DarkModeToggle>
+
+
 
           {/* Navigation Links - Center */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-8">

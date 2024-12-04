@@ -39,7 +39,7 @@ const Reviews = () => {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
-        <span className="text-[#A91D3A]">Customer</span>{" "}
+        <span className="text-[#A91D3A]">Gamer</span>{" "}
         <span className="text-[#151515]">Reviews</span>
       </h2>
 

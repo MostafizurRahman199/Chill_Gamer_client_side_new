@@ -8,6 +8,10 @@ import { useFirebaseAuth } from '../Auth/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import Aos from 'aos';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { FaRegEdit } from 'react-icons/fa';
+
+
 
 const MyReviews = () => {
   const { user } = useFirebaseAuth();
@@ -16,20 +20,23 @@ const MyReviews = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedReview, setSelectedReview] = useState(null);
   
-  // Form fields states
+  
   const [gameCover, setGameCover] = useState('');
   const [gameTitle, setGameTitle] = useState('');
   const [reviewDescription, setReviewDescription] = useState('');
   const [rating, setRating] = useState('');
   const [year, setYear] = useState('');
   const [genre, setGenre] = useState('');
+  const[loading, setLoading] = useState(false);
 
-  // Fetch reviews from DB
+ 
   useEffect(() => {
     if (email) {
+      setLoading(true);
       axios.get(`http://localhost:5000/myreviews/${email}`)
         .then(response => {
           setReviews(response.data);
+          setLoading(false);
         })
         .catch(error => {
           console.error('Error fetching reviews:', error);
@@ -43,7 +50,7 @@ const MyReviews = () => {
 }, []);
 
 
-  // Handle Update Review
+
   const handleUpdate = (reviewId) => {
     axios.get(`http://localhost:5000/updateReviews/${reviewId}`)
       .then(response => {
@@ -67,7 +74,7 @@ const MyReviews = () => {
 
 
 
-  // Handle Submit Updated Review
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedReview = {
@@ -87,11 +94,11 @@ const MyReviews = () => {
             text: "Your review has been updated.",
             icon: "success",
           });
-          // Update review in the state
+    
           setReviews(prevReviews => prevReviews.map(review => 
             review._id === selectedReview._id ? { ...review, ...updatedReview } : review
           ));
-          setShowModal(false); // Close modal
+          setShowModal(false); 
         } else {
           Swal.fire({
             title: "Error!",
@@ -110,7 +117,7 @@ const MyReviews = () => {
       });
   };
 
-  // Handle Delete Review
+ 
   const handleDelete = async (reviewId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -145,37 +152,72 @@ const MyReviews = () => {
     });
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+}, []);
+
+if(loading){
+  return <div className="min-h-screen flex items-center justify-center">
+  <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#A91D3A]"></div>
+</div>
+}
+
   return (
     <div className="bg-[#151515] min-h-screen py-12 px-4 text-white">
       <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">My Reviews</h2>
       
       {reviews.length > 0 ? (
-        <div className="overflow-x-auto">
-          <table className="w-full table-auto text-center">
+        <div className="overflow-x-auto md:overflow-hidden">
+
+          <table className="w-full table-auto text-center" data-aos="fade-up">
             <thead>
-              <tr className="border-b-2 border-[#A91D3A]">
+              <tr className="border-b-2 border-[#A91D3A]" data-aos="fade-up">
+                <th className="py-2 px-4">Game Cover</th>
                 <th className="py-2 px-4">Game Title</th>
                 <th className="py-2 px-4">Rating</th>
                 <th className="py-2 px-4">Year</th>
+                <th className="py-2 px-4">Genre</th>
+                <th className="py-2 px-4">Created At</th>
                 <th className="py-2 px-4">Actions</th>
               </tr>
             </thead>
             <tbody>
               {reviews.map(review => (
-                <tr key={review._id} className="border-b border-[#333] hover:bg-[#1A1A1A]">
+                <tr key={review._id} className="border-b border-[#333] hover:bg-[#1A1A1A]"   data-aos="fade-up">
+                  <td className="px-2 py-2 flex justify-center mx-auto">
+                    <img
+                      src={review.gameCover}
+                      alt={review.gameTitle}
+                      className="w-16 h-16 object-cover rounded-md"
+                    />
+                  </td>
                   <td className="py-2 px-4">{review.gameTitle}</td>
                   <td className="py-2 px-4">{review.rating}</td>
                   <td className="py-2 px-4">{review.year}</td>
-                  <td className="py-2 px-4 flex gap-4 justify-center">
-                    <button
-                      className="px-4 py-2 bg-[#A91D3A] text-white rounded-md shadow-[#A91D3A] hover:bg-[#9c1631]"
-                      onClick={() => handleUpdate(review._id)}>
-                      Update
-                    </button>
+                  
+                  <td className="py-2 px-4">{review.genre}</td>
+                  <td className="px-2 py-2 text-center">
+                  {new Date(review.createdAt).toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true, 
+                  })}
+                </td>
+                  
+                  <td className="px-2 py-2 md:space-x-2 space-y-2 ">
                     <button
                       className="px-4 py-2 bg-red-600 text-white rounded-md shadow-md hover:bg-red-700"
+                      onClick={() => handleUpdate(review._id)}>
+                     <FaRegEdit size={20}/>
+                    </button>
+                    <button
+                      className="px-4 py-2    bg-[#A91D3A] text-white rounded-md shadow-[#A91D3A] hover:bg-[#9c1631]"
                       onClick={() => handleDelete(review._id)}>
-                      Delete
+                      <AiOutlineDelete size={20} />
                     </button>
                   </td>
                 </tr>

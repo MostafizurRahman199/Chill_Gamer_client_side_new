@@ -1,48 +1,18 @@
-// import React from 'react'
-
-// const AllReviews = () => {
-
-
-// // /** 
-// // * Paste one or more documents here
-// // */
-// // {
-// //     "gameCover": "https://media.wired.com/photos/62855b1bb6cfd378a30c474a/master/pass/Build-Game-Watch-It-Die-Hyper-Scape-Games.jpg",
-// //     "gameTitle": "Hunter Game",
-// //     "reviewDescription": "Control the assassin and hunt down your targets one by one. Use your surroundings and shadows to stay hidden from flashlights.",
-// //     "rating": 5,
-// //     "year": "2018",
-// //     "genre": "Action",
-// //     "userEmail": "fardilshifat199@gmail.com",
-// //     "userName": "Shifat",
-// //     "createdAt": {
-// //       "$date": "2024-12-03T16:31:13.981Z"
-// //     }
-// //   }
-    
-//   return (
-//     <div>AllReviews</div>
-//   )
-// }
-
-// export default AllReviews
-
-
-
 
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    // Fetch reviews from backend
+   
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/reviews'); // Replace with 
+        const response = await axios.get('http://localhost:5000/reviews'); 
         console.log(response.data)
         setReviews(response.data);
       } catch (error) {
@@ -52,12 +22,16 @@ const AllReviews = () => {
     fetchReviews();
   }, []);
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+}, []);
+
   return (
     <div className="bg-[#151515] text-white min-h-screen py-12 ">
       <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 w-10/12 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:w-10/12 mx-auto">
         {reviews.map((review) => (
-          <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-lg p-6 hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300">
+          <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-lg p-6 hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" data-aos="fade-up">
             <img
               src={review.gameCover}
               alt={review.gameTitle}

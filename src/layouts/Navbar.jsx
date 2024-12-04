@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useFirebaseAuth } from '../Auth/AuthProvider';
-import { FaHome, FaFontAwesome, FaUserCircle, FaCode, FaTags, FaUser, FaInfoCircle, FaUserPlus, FaSignInAlt } from 'react-icons/fa';
+import { FaHome, FaFontAwesome, FaUserCircle, FaCode, FaTags, FaUser, FaInfoCircle, FaUserPlus, FaSignInAlt, FaBookmark } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import logo from '../assets/logoNav.png'
 import { Tooltip, Button } from "@material-tailwind/react";
+import { IoMdAdd } from 'react-icons/io';
+import { MdAddBox } from 'react-icons/md';
+import { VscOpenPreview } from 'react-icons/vsc';
+import { IoGameControllerOutline } from 'react-icons/io5';
+import { CgProfile } from 'react-icons/cg';
 
 
 const Navbar = () => {
@@ -169,13 +174,13 @@ const Navbar = () => {
               <FaHome className="inline-block mr-1" /> Home
             </Link>
             <Link to="/allReviews" className={getLinkStyle('/allReviews')} onClick={() => setActiveLink('/allReviews')}>
-              <FaTags className="inline-block mr-1" /> All Reviews
+              <VscOpenPreview className="inline-block mr-1"/> All Reviews
             </Link>
            {
             user && (
               <>
               <Link to="/addReview" className={getLinkStyle('/addReview')} onClick={() => setActiveLink('/addReview')}>
-                <FaUser className="inline-block mr-1" /> Add Review
+                <MdAddBox className="inline-block mr-1"/> Add Review
               </Link>
 
               <Link to="/myReview" className={getLinkStyle('/myReview')} onClick={() => setActiveLink('/addReview')}>
@@ -183,11 +188,11 @@ const Navbar = () => {
               </Link>
 
               <Link to="/gameWatchList" className={getLinkStyle('/gameWatchList')} onClick={() => setActiveLink('/gameWatchList')}>
-                <FaUser className="inline-block mr-1" /> Game WatchList
+                <IoGameControllerOutline className="inline-block mr-1" /> Game WatchList
               </Link>
 
               <Link to="/my-profile" className={getLinkStyle('/my-profile')} onClick={() => setActiveLink('/my-profile')}>
-                <FaUser className="inline-block mr-1" /> Profile
+                <CgProfile className="inline-block mr-1" /> Profile
               </Link>
 
 

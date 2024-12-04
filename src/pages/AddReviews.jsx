@@ -2,13 +2,14 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFirebaseAuth } from '../Auth/AuthProvider';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import reviewImage from "../assets/review2.png"
 import Swal from 'sweetalert2';
+import Aos from 'aos';
 
 const AddReview = () => {
   const { user } = useFirebaseAuth();
@@ -70,11 +71,15 @@ const AddReview = () => {
     }
   };
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+}, []);
+
   return (
 <div className='bg-[#151515] text-white min-h-screen mx-auto py-20'>
   <h2 className="text-3xl font-bold text-[#A91D3A] text-center ">Add New Review</h2>
 
-  <div className="max-w-4xl mx-auto p-8 rounded-2xl shadow-2xl shadow-[#A91D3A]  flex flex-col md:flex-row ">
+  <div className="max-w-4xl mx-auto p-8 rounded-2xl shadow-2xl shadow-[#A91D3A]  flex flex-col md:flex-row " data-aos='zoom-in'>
 
     <form onSubmit={handleSubmit} className="space-y-6 md:flex-1">
       {/* Game Cover URL */}

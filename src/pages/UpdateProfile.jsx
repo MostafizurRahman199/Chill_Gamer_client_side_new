@@ -44,9 +44,9 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="min-h-screen pt-20 px-4 flex justify-center items-start">
-        <div className='bg-gradient-to-r from-[#A91D3A] to-[#d4143a] p-2 sm:p-4 rounded-2xl shadow-2xl' data-aos='zoom-in-left'>
-        <div className="max-w-4xl w-full  bg-white rounded-2xl shadow-lg p-8 flex items-center justify-center gap-2" data-aos='zoom-in-left'>
+        <div className="min-h-screen bg-[#151515]  pt-20 px-4 flex justify-center items-start">
+        <div className='bg-[#151515]  p-2 sm:p-4 rounded-2xl shadow-2xl' data-aos='zoom-in-left'>
+        <div className="max-w-4xl w-full  shadow-2xl shadow-[#A91D3A]  rounded-2xl  p-8 flex items-center justify-center gap-2" data-aos='zoom-in-left'>
                 <div className="flex-1">
                     <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-[#151515]">Update Profile</h2>
                     <form onSubmit={handleUpdate}>

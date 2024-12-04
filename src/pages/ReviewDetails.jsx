@@ -27,9 +27,9 @@ const ReviewDetails = () => {
   const handleAddToWatchList = () => {
     if (!user) {
       Swal.fire({
-        title: 'Error',
+        title: 'Please Login Fast',
         text: 'You must be logged in to add to the watchlist!',
-        icon: 'error',
+        icon: 'warning',
       });
       return;
     }
@@ -77,7 +77,7 @@ const ReviewDetails = () => {
 
   return (
     <div className="bg-[#151515] min-h-screen py-12 px-4 text-white">
-      <div className="w-10/12 mx-auto p-6 bg-[#1A1A1A] rounded-2xl shadow-lg shadow-[#A91D3A]">
+      <div className="md:w-10/12 mx-auto p-6 bg-[#1A1A1A] rounded-2xl shadow-lg shadow-[#A91D3A]">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Game Cover */}
           <div className="flex-1">
@@ -95,9 +95,9 @@ const ReviewDetails = () => {
           
             <p className='flex gap-1 items-center justify-center'>
   <span className="font-bold text-[#A91D3A] flex gap-1">Rating:</span>
-  <span className="flex gap-1">
+  <span className="flex ">
     {[...Array(5)].map((_, index) => (
-      <span key={index} className="text-[#A91D3A] text-lg">
+      <span key={index} className="text-white text-lg">
         {review.rating > index ? <AiFillStar /> : <AiOutlineStar />}
       </span>
     ))}
@@ -111,12 +111,19 @@ const ReviewDetails = () => {
               <p><span className="font-bold text-[#A91D3A]">Reviewer:</span> {review.userName}</p>
               <p><span className="font-bold text-[#A91D3A]">Email:</span> {review.userEmail}</p>
             </div>
-            <button
-              className="px-4 py-2 bg-[#A91D3A] text-white rounded-md shadow-lg hover:bg-[#9c1631] transition-all"
+            {
+                user ? <button
+                className="px-4 py-2 bg-[#A91D3A] text-white rounded-md shadow-lg hover:bg-[#9c1631] transition-all"
+                onClick={handleAddToWatchList}
+              >
+                Add to WatchList
+              </button> : <button
+              className="px-4 py-2  bg-[#908d8e] text-white rounded-md shadow-lg hover:bg-[#6f6c6d] transition-all" 
               onClick={handleAddToWatchList}
             >
               Add to WatchList
             </button>
+            }
           </div>
         </div>
       </div>

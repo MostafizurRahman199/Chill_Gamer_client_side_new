@@ -31,7 +31,7 @@ const Profile = () => {
         //     backgroundRepeat: 'no-repeat',
         // }}>
 
-        <div className={`min-h-screen bg-gradient-to-r from-[#A91D3A] to-[#380a13]` } >
+        <div className={`min-h-screen bg-[#151515] ` } >
            
        
             <div className="md:pt-2 px-4 min-h-screen w-full flex flex-col justify-center items-center gap-2">
@@ -40,7 +40,7 @@ const Profile = () => {
                 </h1>
                 <p className='text-white text-center'>Manage your profile and updates effortlessly</p>
                </div>
-                <div className="w-full sm:w-8/12 lg:w-5/12 mx-auto bg-white rounded-2xl shadow-2xl p-8 mt-4" data-aos="zoom-in">
+                <div className="w-full sm:w-8/12 lg:w-5/12 mx-auto shadow-2xl shadow-[#A91D3A] rounded-2xl p-8 mt-4" data-aos="zoom-in">
                     <div className="flex flex-col items-center">
                         <div className="w-fit rounded-full p-1 bg-gradient-to-r from-[#151515] to-[#A91D3A]" data-aos="zoom-in">
                             <img

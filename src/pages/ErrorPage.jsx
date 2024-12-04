@@ -13,8 +13,8 @@ const ErrorPage = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-[#A91D3A] to-[#151515]">
-      <div className="md:w-96 text-center p-8 bg-white rounded-lg shadow-lg" data-aos="fade-up">
+    <div className="flex items-center justify-center min-h-screen bg-[#151515] ">
+      <div className="md:w-96 text-center p-8 shadow-2xl shadow-[#A91D3A] rounded-lg" data-aos="fade-up">
         <h1 className="text-4xl font-bold text-[#A91D3A] mb-4" data-aos="zoom-in">Oops!</h1>
         <p className="text-lg text-gray-700 mb-6" data-aos="fade-in">
          This page is not found.

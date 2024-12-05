@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Swal from 'sweetalert2';  // SweetAlert for confirmation
-import axios from 'axios';  // Axios for making API requests
+import Swal from 'sweetalert2'; 
+import axios from 'axios'; 
 import contactImage2 from "../../assets/contact6.png"
 import { IoIosSend } from 'react-icons/io';
 import send from "../../../public/send.json"
@@ -17,16 +17,14 @@ const Contact = () => {
 
 //   ________________animation start
 
-
-
-  const style = {
+ const style = {
     height: 30,
   };
   
 
 
 
-  // Handle form input change
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -35,19 +33,19 @@ const Contact = () => {
     });
   };
 
-  // Handle form submission
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send form data to the server using Axios
+   
     axios
-      .post('http://localhost:5000/contact', formData)  // Backend API route
+      .post('http://localhost:5000/contact', formData) 
       .then((response) => {
         Swal.fire({
           title: 'Thank you for contacting us!',
           text: response.data.message || 'We will get back to you soon.',
           icon: 'success',
-          confirmButtonColor: '#A91D3A',  // Custom color theme
+          confirmButtonColor: '#A91D3A',  
         });
 
        setFormData({
@@ -82,10 +80,7 @@ const Contact = () => {
 
 
       <div className="flex-1 flex justify-center items-center p-8 ">
-        {/* <form
-          className="w-full max-w-lg bg-[#1A1A1A] p-6 rounded-lg shadow-2xl"
-          onSubmit={handleSubmit}
-        > */}
+      
         <form
           className="w-full max-w-lg p-1 md:p-6 rounded-l-lg "
           onSubmit={handleSubmit}
@@ -107,7 +102,7 @@ const Contact = () => {
               value={formData.name}
               onChange={handleInputChange}
               className="w-full p-3  border border-[#A91D3A] text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
-            //   className="w-full p-3 bg-[#151515] border border-[#A91D3A] text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+          
               required
             />
           </div>
@@ -127,7 +122,7 @@ const Contact = () => {
               value={formData.email}
               onChange={handleInputChange}
               className="w-full p-3  border border-[#A91D3A] text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
-            //   className="w-full p-3 bg-[#151515] border border-[#A91D3A] text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+         
               required
             />
           </div>
@@ -147,7 +142,7 @@ const Contact = () => {
               onChange={handleInputChange}
               rows="4"
               className="w-full p-3  border border-[#A91D3A] text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
-            //   className="w-full p-3 bg-[#151515] border border-[#A91D3A] text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+          
               required
             />
           </div>
@@ -169,3 +164,7 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
+
+

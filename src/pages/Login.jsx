@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Aos from 'aos';
 import { useEffect } from 'react';
+import loginImage    from "../assets/loginImage.png"
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -72,9 +73,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-lg w-full space-y-8 sm:shadow-lg shadow-[#A91D3A] p-8  rounded-2xl" data-aos="zoom-in">
-        <div>
+    <div className="min-h-screen md:w-10/12 mx-auto flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+      <div className=" w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4  space-y-8 sm:shadow-custom p-8  rounded-2xl bg-[#000000]" data-aos="zoom-in">
+       <div className='flex-1'>
+       <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-[#A91D3A]">
             Login to your account
           </h2>
@@ -157,7 +159,15 @@ const Login = () => {
             Register here
           </Link>
         </p>
+       </div>
+
+       <div className='flex-1'>
+        <img src={loginImage} alt="" />
       </div>
+      </div>
+
+
+      
     </div>
   );
 };

@@ -3,10 +3,11 @@
 
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';  // To make API requests
-import { Link } from 'react-router-dom';  // If you want to navigate to a review detail page
-import { AiFillStar } from 'react-icons/ai';  // Rating stars
+import axios from 'axios';  
+import { Link } from 'react-router-dom';  
+import { AiFillStar } from 'react-icons/ai'; 
 import { Typewriter } from 'react-simple-typewriter';
+import Aos from 'aos';
 
 const HightestRatedGame = () => {
   const [games, setGames] = useState([]);
@@ -22,6 +23,12 @@ const HightestRatedGame = () => {
         console.error("Error fetching highest rated games:", error);
       });
   }, []);
+
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+}, []);
+
 
   return (
     <div className="container mx-auto px-4 py-8 my-8">
@@ -46,7 +53,7 @@ const HightestRatedGame = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6  ">
         {games.map((review) => (
-           <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-lg p-6 shadow-[#A91D3A] hover:scale-105 transition-all duration-300" >
+           <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-md hover:shadow-lg p-6 shadow-[#A91D3A] hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" >
            <div data-aos="fade-up">
            <img
              src={review.gameCover}

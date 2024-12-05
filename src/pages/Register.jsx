@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import Aos from 'aos';
 import { useEffect } from 'react';
+import registerImage from "../assets/register.png"
 
 const Register = () => {
     const navigate = useNavigate();
@@ -73,9 +74,10 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-lg w-full space-y-8 sm:shadow-lg shadow-[#A91D3A] p-8  rounded-2xl" data-aos="fade-up">
-                <div>
+        <div className="md:w-10/12 mx-auto flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
+            <div className="w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4  space-y-8 sm:shadow-custom  p-8  rounded-2xl bg-[#000000]" data-aos="fade-up">
+              <div className='flex-1'>
+              <div>
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-[#A91D3A]">
                         Create your account
                     </h2>
@@ -166,6 +168,12 @@ const Register = () => {
                         Login here
                     </Link>
                 </p>
+              </div>
+
+
+              <div className='flex-1 flex justify-center items-center'>
+                <img src={registerImage} alt="" />
+              </div>
             </div>
         </div>
     );

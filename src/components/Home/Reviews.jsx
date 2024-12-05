@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 
@@ -8,9 +9,9 @@ const Reviews = () => {
   useEffect(() => {
  
     const fetchReviews = async () => {
-      const response = await fetch("/reviews.json");
-      const data = await response.json();
-      setReviews(data);
+      const response = await axios.get("http://localhost:5000/websiteReview");
+      console.log(response.data);
+      setReviews(response.data);
     };
     fetchReviews();
   }, []);
@@ -24,6 +25,7 @@ const Reviews = () => {
       try {
         const response = await fetch("https://randomuser.me/api/?results=10");
         const data = await response.json();
+
         setPeople(data.results);
       } catch (error) {
         console.error("Error fetching random people:", error);
@@ -62,18 +64,18 @@ const Reviews = () => {
             >
             
               <img
-                src={peopleImages[index]}
-                alt={review.username}
+                src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgPVkJVzlQI0k2hNWAgQQNKh561Px-P5KU1Q&s"}
+                alt={review.name}
                 className="w-20 h-20 rounded-full object-cover border-4 border-[#151515] mb-4"
                 onError={(e) => (e.target.src = "/fallback-user.png")}
               />
 
             
               <h3 className="text-lg font-bold text-[#A91D3A]">
-                {review.username}
+                {review.name}
               </h3>
               <p className="text-sm text-gray-500 italic mb-2">
-                {review.occupation}
+                {review.profession}
               </p>
 
              
@@ -99,13 +101,13 @@ const Reviews = () => {
                   </svg>
                 ))}
                 <span className="ml-2 text-gray-700">
-                  {review.rating.toFixed(1)}
+                  {/* {review.rating.toFixed(1)} */}
                 </span>
               </div>
 
              
               <p className="text-xs text-gray-400">
-                {new Date(review.date).toLocaleDateString()}
+                {new Date(review.createdAt).toLocaleDateString()}
               </p>
             </div>
           ))}

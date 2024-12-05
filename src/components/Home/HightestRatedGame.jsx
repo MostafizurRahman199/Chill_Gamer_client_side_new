@@ -31,13 +31,13 @@ const HightestRatedGame = () => {
 
 
   return (
-    <div className="container mx-auto px-4 py-8 my-8">
+    <div className="w-10/12 mx-auto px-4 py-8 my-8">
       <h1 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">
 
       <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}
           <Typewriter
-            words={['Highest Rated Games', 'Top Ratings', 'More Exciting', ]}
+            words={['Highest Rated Games', 'Top Ratings', 'More Exciting','Highest Rated Games' ]}
             loop={5}
             cursor
             cursorStyle='_'

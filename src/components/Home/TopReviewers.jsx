@@ -107,7 +107,7 @@ const TopReviewers = () => {
       <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}
           <Typewriter
-            words={['Top 5 Gamer', 'Top 5 Reviewer', ' Diamond'," Platinum", " Gold", " Silver", " Bronze", ]}
+            words={['Top 5 Reviewer', 'Top 5 Reviewer', ' Diamond'," Platinum", " Gold", " Silver", " Bronze",'Top 5 Reviewer' ]}
             loop={5}
             cursor
             cursorStyle='_'

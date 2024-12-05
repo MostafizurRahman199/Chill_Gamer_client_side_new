@@ -85,11 +85,11 @@ if(loading){
 }
 
   return (
-    <div className=" mx-auto px-4 py-8  bg-[#151515] min-h-screen">
+    <div className=" mx-auto px-4 py-8  min-h-screen">
       <h1 className="text-3xl font-bold text-[#A91D3A] text-center mb-6">My Game Watchlist</h1>
       
       <div className="overflow-x-auto md:overflow-hidden md:w-10/12 mx-auto">
-        <table className="min-w-full bg-[#151515] shadow-lg rounded-lg text-white"  data-aos="fade-up"
+        <table className="min-w-full  shadow-lg rounded-lg "  data-aos="fade-up"
      data-aos-anchor-placement="bottom-bottom">
           <thead className="border-b-2 border-[#A91D3A]">
             <tr  data-aos="fade-up"
@@ -106,7 +106,7 @@ if(loading){
         
             {Array.isArray(watchlist) && watchlist.length > 0 ? (
               watchlist.map((game) => (
-                <tr key={game._id} className="border-b border-[#333] hover:bg-[#1A1A1A]" 
+                <tr key={game._id} className="border-b border-[#333] hover:text-white hover:bg-[#2d2c2c] " 
                 data-aos="fade-up"
                 data-aos-anchor-placement="bottom-bottom">
                   <td className="px-4 py-2 flex justify-center mx-auto">

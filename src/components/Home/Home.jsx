@@ -5,6 +5,7 @@ import HightestRatedGame from './HightestRatedGame'
 import TopReviewers from './TopReviewers'
 import Contact from './Contact'
 import { ThemeProvider } from '../../Auth/ThemeContext'
+import WebsiteReview from './WebsiteReview'
 
 
 
@@ -22,6 +23,7 @@ const Home = () => {
         <TopReviewers></TopReviewers>
         <Contact></Contact>
         <Reviews />
+        <WebsiteReview></WebsiteReview>
     </div>
 
   )

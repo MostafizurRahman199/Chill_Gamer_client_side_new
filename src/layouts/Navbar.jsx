@@ -9,6 +9,7 @@ import { MdAddBox } from 'react-icons/md';
 import { VscOpenPreview } from 'react-icons/vsc';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import DarkModeToggle from '../components/Home/DarkModeToggle';
+import gamerLogo from "../assets/gamer3.png"
 
 
 
@@ -165,10 +166,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
        
           <div className="flex flex-shrink-0 items-center  gap-1 sm:gap-4">
-            <Link to="/" className="flex items-center space-x-4">
+            <Link to="/" className="flex items-center space-x-1">
               <img
                 className="block md:hidden lg:block h-10 w-auto sm:h-10"
-                src={logo}
+                src={gamerLogo}
                 alt="Logo"
               />
               <span className="text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-[#A91D3A] to-[#151515] bg-clip-text text-transparent truncate">

@@ -164,7 +164,7 @@ if(loading){
 }
 
   return (
-    <div className="bg-[#151515] min-h-screen py-12 px-4 text-white">
+    <div className=" min-h-screen py-12 px-4 ">
       <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">My Reviews</h2>
       
       {reviews.length > 0 ? (
@@ -184,7 +184,7 @@ if(loading){
             </thead>
             <tbody>
               {reviews.map(review => (
-                <tr key={review._id} className="border-b border-[#333] hover:bg-[#1A1A1A]"   data-aos="fade-up">
+                <tr key={review._id} className="transition-all transform duration-300 border-b border-[#333] hover:text-white hover:bg-[#2d2c2c] "   data-aos="fade-up">
                   <td className="px-2 py-2 flex justify-center mx-auto">
                     <img
                       src={review.gameCover}

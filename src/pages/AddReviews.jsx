@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 import Aos from 'aos';
 import Lottie from "lottie-react";
 import reviewAnimation from "../../public/add_review.json";
+import { Typewriter } from 'react-simple-typewriter';
 
 const AddReview = () => {
   const { user } = useFirebaseAuth();
@@ -88,7 +89,25 @@ const AddReview = () => {
 
   return (
 <div className=' text-white min-h-screen mx-auto py-8'>
-  <h2 className="text-3xl font-bold text-[#A91D3A] text-center my-2">Add New Review</h2>
+
+  <h2 className="text-3xl font-bold text-[#A91D3A] text-center my-2">
+
+
+  <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Add New Review', 'Become Top Reviewer', 'Get Point', 'Add New Review']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={50}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span>
+  </h2>
 
   <div className="bg-[#151515] w-10/12 mx-auto p-8 rounded-2xl shadow-2xl shadow-[#A91D3A]  flex flex-col md:flex-row " data-aos='zoom-in'>
 

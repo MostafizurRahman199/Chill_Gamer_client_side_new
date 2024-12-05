@@ -123,7 +123,7 @@ const TopReviewers = () => {
       </h1>
       <div className="flex flex-wrap mx-auto justify-center gap-4 " 
       
-      data-aos="fade-left"
+      data-aos="fade-in"
       // data-aos-anchor="#example-anchor"
       // data-aos-offset="500"
       // data-aos-duration="500"

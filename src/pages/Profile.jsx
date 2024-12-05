@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useFirebaseAuth } from '../Auth/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import Aos from 'aos';
+import Lottie from 'lottie-react';
+import fireAnimation from "../../public/fire.json";
 
 const getProfileImage = (user) => {
   return user?.photoURL || 
@@ -21,27 +23,38 @@ const Profile = () => {
         Aos.init({ duration: 1000 });
     }, []);
 
-    return (
-        // <div className={`min-h-screen bg-contain bg-center no-repeat     bg-url(${profileBg})` } style={{
-        //     backgroundImage: `url(${profileBg})`,
-        //     backgroundBlendMode: 'multiply',
-        //     backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        //     backgroundSize: 'cover',
-        //     backgroundPosition: 'center',
-        //     backgroundRepeat: 'no-repeat',
-        // }}>
+    
+  const style = {
+    height: 250,
+  };
+  
 
-        <div className={`min-h-screen bg-[#151515] ` } >
+    return (
+    
+
+        <div className={`min-h-screen  ` } >
            
        
-            <div className="md:pt-2 px-4 min-h-screen w-full flex flex-col justify-center items-center gap-2">
-               <div className='flex flex-col items-center justify-center gap-2' data-aos='zoom-in'>
+            <div className="md:pt-2 px-4 min-h-screen w-full flex flex-col justify-center items-center gap-2 ">
+              
+              <div className='bg-[#151515] shadow-2xl shadow-[#A91D3A] rounded-2xl' data-aos='zoom-in'>
+              <div className='flex flex-col items-center justify-center gap-2    px-6 py-4' >
                 <h1 className="text-4xl md:text-5xl font-bold text-white text-center ">Welcome To Your Profile<br /> 
                 </h1>
                 <p className='text-white text-center'>Manage your profile and updates effortlessly</p>
                </div>
-                <div className="w-full sm:w-8/12 lg:w-5/12 mx-auto shadow-2xl shadow-[#A91D3A] rounded-2xl p-8 mt-4" data-aos="zoom-in">
+
+                <div className="relative w-full sm:w-8/12 lg:w-5/12 mx-auto  rounded-2xl p-8 mt-4 " data-aos="zoom-in">
                     <div className="flex flex-col items-center">
+
+                        <div className='absolute -top-24'>
+                        <Lottie
+                            animationData={fireAnimation}
+                            style={style}
+                            />
+                          </div>
+
+
                         <div className="w-fit rounded-full p-1 bg-gradient-to-r from-[#151515] to-[#A91D3A]" data-aos="zoom-in">
                             <img
                                 src={getProfileImage(user)}
@@ -65,6 +78,7 @@ const Profile = () => {
                         </button>
                     </div>
                 </div>
+              </div>
             </div>
         </div>
     );

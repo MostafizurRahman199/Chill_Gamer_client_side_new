@@ -13,12 +13,14 @@ Check out the live website here: [Live Website Link](https://chillgamerbymostafi
 - **⭐ Top 5 Reviews**: Displays the highest-rated reviews dynamically.
 - **🎮 Game Watchlist**: Users can add games to their personal watchlist from the review details page.
 - **🌟 Rating System**: Allows users to rate games (1-5 scale) and showcase ratings given by others.
-- **🔐 Authentication**: Email/password-based login, Google/GitHub login options.
+- **🔐 Authentication**: Email/password-based login, Google login options.
 - **📱 Responsive Design**: The application is fully responsive across mobile, tablet, and desktop devices.
 - **🌑 Theme Toggle**: Users can toggle between dark and light themes.
 - **🔍 Search & Filters**: Sort reviews based on rating, year, and genre.
+- **🏆 Showcasing Top Rating Games**: Display the top-rated games dynamically, highlighting the best-reviewed games.
+- **💬 My Review (Update, Delete)**: Users can view, update, and delete their submitted reviews from their personal profile page.
 
-## Key Requirements
+
 
 ### Layout Structure
 

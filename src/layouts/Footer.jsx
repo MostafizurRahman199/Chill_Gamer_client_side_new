@@ -25,7 +25,7 @@ const Footer = () => {
             </h3>
           </div>
             <p className="text-sm leading-relaxed">
-              Your one-stop destination for the best discount coupons from popular e-commerce shops in Bangladesh.
+              This place is for Gamer Find authentic review about have and can make review and shortlisted his favorite one.
             </p>
 
           </div>
@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2">
-              {['Home', 'About Us', 'All Coupons', 'Popular Stores'].map((item) => (
+              {['Home', 'About Us', 'All Reviews', 'Login', ].map((item) => (
                 <li key={item}>
                   <a href="#" className="text-sm hover:text-black transition-colors duration-300">
                     {item}
@@ -57,7 +57,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <FaEnvelope className="text-white" />
-                <span className="text-sm">info@discountpro.com</span>
+                <span className="text-sm">info@chillgamer.com</span>
               </div>
             </div>
           </div>

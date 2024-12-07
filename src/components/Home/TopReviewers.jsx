@@ -102,7 +102,7 @@ const TopReviewers = () => {
 
   return (
     <div className="w-full mx-auto px-4 py-8  bg-[#000000] my-20">
-      <h1 className="text-3xl md:text-5xl h-[100px]  font-bold text-[#A91D3A] text-center my-6">
+      <h1 className="font_header text-3xl md:text-5xl h-[100px]  font-bold text-[#A91D3A] text-center my-6">
 
       <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}

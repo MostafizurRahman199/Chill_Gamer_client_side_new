@@ -172,7 +172,7 @@ if(loading){
 
   return (
     <div className=" min-h-screen py-12 px-4 ">
-      <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">My Reviews</h2>
+      <h2 className="font_header text-4xl font-bold text-[#A91D3A] text-center mb-8">My Reviews</h2>
       
       {reviews.length > 0 ? (
         <div className="overflow-x-auto md:overflow-hidden">

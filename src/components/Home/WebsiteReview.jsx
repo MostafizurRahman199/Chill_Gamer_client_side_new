@@ -75,8 +75,8 @@ const WebsiteReview = () => {
 
   return (
    <div>
-     <h2 className="text-3xl h-[100px]  sm:text-3xl md:text-5xl font-bold  text-[#A91D3A] text-center mb-6 ">
-     <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+     <h2 className="font_header text-3xl h-[100px]  sm:text-3xl md:text-5xl font-bold  text-[#A91D3A] text-center mb-6 ">
+     <span style={{ color: '#A91D3A', fontWeight: 'bold' }} className='font_header'>
           {/* Style will be inherited from the parent element */}
           <Typewriter
             words={['Send Website Review',"Review For Website", "It's Dynamic", "Review For Website"]}

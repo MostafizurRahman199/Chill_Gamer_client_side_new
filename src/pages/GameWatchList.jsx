@@ -86,7 +86,7 @@ if(loading){
 
   return (
     <div className=" mx-auto px-4 py-8  min-h-screen">
-      <h1 className="text-3xl font-bold text-[#A91D3A] text-center mb-6">My Game Watchlist</h1>
+      <h1 className="font_header text-3xl font-bold text-[#A91D3A] text-center mb-6">My Game Watchlist</h1>
       
       <div className="overflow-x-auto md:overflow-hidden md:w-10/12 mx-auto">
         <table className="min-w-full  shadow-lg rounded-lg "  data-aos="fade-up"

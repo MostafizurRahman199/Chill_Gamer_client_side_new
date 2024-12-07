@@ -20,7 +20,7 @@ const Footer = () => {
                 src={gamerLogo}
                 alt="Logo"
               />
-            <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-white">
+            <h3 className="font_header text-2xl font-bold bg-clip-text text-transparent bg-white">
               Chill Gamer
             </h3>
           </div>

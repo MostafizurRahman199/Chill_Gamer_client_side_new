@@ -12,7 +12,7 @@ import { ThemeProvider } from "../Auth/ThemeContext";
 const MainLayout = () => {
   const { user, loading } = useFirebaseAuth();
   return (
-    <div className="font-poppins">
+    <div className="font_poppins">
       <ToastContainer />
 
       {loading ? (

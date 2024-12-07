@@ -82,9 +82,9 @@ const AllReviews = () => {
 
   return (
     <div className=" min-h-screen py-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews
+      <h2 className="font_header text-3xl md:text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews
 
-      <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+      <span style={{ color: '#A91D3A', fontWeight: 'bold' }} className='font_header'>
         
           <Typewriter
             words={[' Sort', ' Search', ' Filter','.' ]}

@@ -90,7 +90,7 @@ const Contact = () => {
           className="w-full max-w-lg p-1 md:p-6 rounded-l-lg "
           onSubmit={handleSubmit}
         >
-          <h2 className="text-3xl font-semibold text-[#A91D3A] text-center mb-4">Contact Us</h2>
+          <h2 className="font_header text-4xl font-semibold text-[#A91D3A] text-center mb-4">Contact Us</h2>
 
        
           <div className="mb-4">

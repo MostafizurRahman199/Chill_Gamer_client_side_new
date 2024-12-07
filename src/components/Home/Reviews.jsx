@@ -70,7 +70,7 @@ const Reviews = () => {
 
   return (
     <div className="w-full  py-8">
-      <h2 className="text-3xl h-[100px]  sm:text-3xl md:text-5xl font-bold  text-[#A91D3A] text-center my-6 ">
+      <h2 className="font_header text-3xl h-[100px]  sm:text-3xl md:text-5xl font-bold  text-[#A91D3A] text-center my-6 ">
      <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}
           <Typewriter

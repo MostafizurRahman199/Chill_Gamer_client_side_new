@@ -65,8 +65,8 @@ const Navbar = () => {
 
 
     const getLinkStyle = (path) => `
-    relative px-2 py-2 text-sm font-medium transition-colors duration-200
-    ${activeLink === path ? 'text-[#A91D3A]' : 'text-gray-700 hover:text-[#A91D3A]'}
+    relative px-2 py-2 text-sm font-bold  font_header transition-colors duration-200
+    ${activeLink === path ? 'text-[#A91D3A]' : 'text-black hover:text-[#A91D3A]'}
     before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 
     before:bg-[#A91D3A] before:transform before:scale-x-0 before:transition-transform
     before:duration-300 hover:before:scale-x-100
@@ -164,7 +164,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md fixed  shadow-lg w-full top-0 z-50">
+    <nav className=" font_header bg-white/80 backdrop-blur-md fixed  shadow-lg w-full top-0 z-50">
       <div className="w-full mx-auto px-2 sm:px-2 lg:px-2">
         <div className="flex justify-between items-center h-16">
        
@@ -175,7 +175,7 @@ const Navbar = () => {
                 src={gamerLogo}
                 alt="Logo"
               />
-              <span className="text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-[#A91D3A] to-[#151515] bg-clip-text text-transparent truncate">
+              <span className="font_header text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-[#A91D3A] to-[#151515] bg-clip-text text-transparent truncate">
               Chill Gamer
               </span>
             </Link>

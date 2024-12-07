@@ -94,7 +94,7 @@ const ReviewDetails = () => {
           </div>
           {/* Review Details */}
           <div className="flex-1 space-y-4">
-            <h1 className="text-3xl font-bold text-[#A91D3A]">{review.gameTitle}</h1>
+            <h1 className="font_header text-4xl md:text-5xl font-bold text-[#A91D3A]">{review.gameTitle}</h1>
             <p className="text-gray-300">{review.reviewDescription}</p>
             <div className="flex flex-wrap gap-4">
           

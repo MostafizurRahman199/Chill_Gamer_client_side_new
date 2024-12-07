@@ -102,7 +102,7 @@ const AddReview = () => {
   return (
 <div className=' text-white min-h-screen mx-auto py-8'>
 
-  <h2 className="text-3xl md:text-4xl font-bold text-[#A91D3A] text-center my-2">
+  <h2 className="font_header text-3xl md:text-4xl font-bold text-[#A91D3A] text-center my-2">
 
 
   <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>

@@ -42,9 +42,9 @@ if(loading){
 
   return (
     <div className="md:w-10/12 mx-auto px-4 py-8 my-8">
-      <h1 className="text-3xl lg:text-5xl  h-[100px]  font-bold text-[#A91D3A] text-center mb-8">
+      <h1 className="font_header text-3xl lg:text-5xl  h-[100px]  font-bold text-[#A91D3A] text-center mb-8">
 
-      <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+      <span style={{ color: '#A91D3A', fontWeight: 'bold' }} >
           {/* Style will be inherited from the parent element */}
           <Typewriter
             words={['Highest Rated Games', 'Top Ratings', 'More Exciting','Highest Rated Games' ]}
@@ -62,8 +62,7 @@ if(loading){
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6  ">
-        {games.map((review) => (
-           <div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-md hover:shadow-lg p-6 shadow-[#A91D3A] hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" >
+        {games.map((review) => (<div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-md hover:shadow-lg p-6 shadow-[#A91D3A] hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" > 
            <div data-aos="fade-up">
            <img
              src={review.gameCover}

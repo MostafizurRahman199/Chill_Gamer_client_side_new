@@ -35,16 +35,16 @@ const Profile = () => {
         <div className={`min-h-screen  ` } >
            
        
-            <div className="md:pt-2 px-4 min-h-screen w-full flex flex-col justify-center items-center gap-2 ">
+            <div className="md:pt-2 md:px-4 min-h-screen w-full flex flex-col justify-center items-center gap-2 ">
               
-              <div className='bg-[#151515] shadow-2xl shadow-[#A91D3A] rounded-2xl' data-aos='zoom-in'>
-              <div className='flex flex-col items-center justify-center gap-2    px-6 py-4' >
-                <h1 className="text-4xl md:text-5xl font-bold text-white text-center ">Welcome To Your Profile<br /> 
+              <div className='bg-[#151515] w-full sm:w-8/12 shadow-2xl shadow-[#A91D3A] sm:rounded-2xl' data-aos='zoom-in'>
+              <div className='flex flex-col items-center justify-center gap-2 px-4   md:px-6 py-4' >
+                <h1 className="font_header text-2xl sm:text-3xl md:text-5xl font-bold text-white text-center ">Welcome To Your Profile<br /> 
                 </h1>
-                <p className='text-white text-center'>Manage your profile and updates effortlessly</p>
+                <p className='font_header text-white text-center'>Manage your profile and updates effortlessly</p>
                </div>
 
-                <div className="relative w-full sm:w-8/12 lg:w-5/12 mx-auto  rounded-2xl p-8 mt-4 " data-aos="zoom-in">
+                <div className="relative w-full sm:w-8/12 lg:w-5/12 mx-auto  rounded-2xl p-4 md:p-8 mt-4 " data-aos="zoom-in">
                     <div className="flex flex-col items-center">
 
                         <div className='absolute -top-24'>
@@ -67,7 +67,7 @@ const Profile = () => {
                             />
                         </div>
 
-                        <h1 className="text-2xl font-bold mb-2 text-center text-[#A91D3A]">{user?.displayName}</h1>
+                        <h1 className="text-2xl font-bold mb-2 text-center text-[#A91D3A] my-8">{user?.displayName}</h1>
                         <p className="text-gray-600 mb-4">{user?.email}</p>
 
                         <button

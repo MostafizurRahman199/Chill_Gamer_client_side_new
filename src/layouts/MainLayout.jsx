@@ -16,7 +16,7 @@ const MainLayout = () => {
       <ToastContainer />
 
       {loading ? (
-        <div className="flex justify-center items-center h-[80vh]">
+        <div className="flex justify-center items-center min-h-screen">
           <FaSpinner className="animate-spin text-4xl text-[#A91D3A]" />
         </div>
       ) : (

@@ -1,15 +1,45 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
+import { Typewriter } from "react-simple-typewriter";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [people, setPeople] = useState([]);
 
+  const imageArray = [
+    {
+      
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-jsTip7YsPxi6INBL1UCWa_HpPcdnzPA80w&s",
+   
+    },
+    {
+     
+      imageUrl: "https://png.pngtree.com/thumb_back/fh260/background/20230610/pngtree-the-character-wearing-headphones-with-an-ear-piercing-in-his-head-image_2919756.jpg",
+   
+    },
+    {
+      
+      imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/022/189/642/small_2x/portrait-of-an-emo-girl-virtual-reality-gamer-generative-ai-free-photo.jpg",
+    
+    },
+    {
+      
+      imageUrl: "https://imgcdn.stablediffusionweb.com/2024/3/17/5cf43290-e7d4-4380-8675-9c8b1d562dde.jpg",
+   
+    },
+    {
+     
+      imageUrl: "https://image.winudf.com/v2/image1/Y29tLkdhbWluZy5Qcm9maWxlUGljdHVyZXNfc2NyZWVuXzBfMTY4OTg4MzkyM18wOTc/screen-0.jpg?fakeurl=1&type=.jpg",
+    
+
+    },
+  ];
+
   useEffect(() => {
  
     const fetchReviews = async () => {
-      const response = await axios.get("http://localhost:5000/websiteReview");
+      const response = await axios.get("https://chillgamermostafiz16.vercel.app/websiteReview");
       console.log(response.data);
       setReviews(response.data);
     };
@@ -40,11 +70,25 @@ const Reviews = () => {
 
   return (
     <div className="w-full  py-8">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
-        <span className="text-[#A91D3A]">Gamer</span>{" "}
-        <span className="text-[#151515]">Reviews</span>
-      </h2>
+      <h2 className="text-3xl h-[100px]  sm:text-3xl md:text-5xl font-bold  text-[#A91D3A] text-center my-6 ">
+     <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={["People Says", "Chill Gamer's Community"]}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={50}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span>
 
+
+
+     </h2>
       <Marquee
         gradient={false}
         speed={50}
@@ -64,7 +108,7 @@ const Reviews = () => {
             >
             
               <img
-                src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgPVkJVzlQI0k2hNWAgQQNKh561Px-P5KU1Q&s"}
+                src={imageArray[index % 5].imageUrl}
                 alt={review.name}
                 className="w-20 h-20 rounded-full object-cover border-4 border-[#151515] mb-4"
                 onError={(e) => (e.target.src = "/fallback-user.png")}

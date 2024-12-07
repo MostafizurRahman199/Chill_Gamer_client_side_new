@@ -9,13 +9,14 @@ import Swal from 'sweetalert2';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 const ReviewDetails = () => {
+  const [loading, setLoading] = useState(false);
   const { user } = useFirebaseAuth();
   const { id } = useParams(); // Get the review ID from the URL
   const [review, setReview] = useState(null);
 
   useEffect(() => {
   
-    axios.get(`http://localhost:5000/reviewDetails/${id}`)
+    axios.get(`https://chillgamermostafiz16.vercel.app/reviewDetails/${id}`)
       .then((response) => {
         setReview(response.data);
       })
@@ -40,8 +41,9 @@ const ReviewDetails = () => {
       userName: user.displayName,
     };
 
+    setLoading(true);
     // Add to watchlist in the database
-    axios.post('http://localhost:5000/watchlist', watchlistData)
+    axios.post('https://chillgamermostafiz16.vercel.app/watchlist', watchlistData)
       .then((response) => {
         if (response.data.success) {
           Swal.fire({
@@ -49,6 +51,8 @@ const ReviewDetails = () => {
             text: 'Added to your WatchList!',
             icon: 'success',
           });
+
+          setLoading(false);
         } else {
           Swal.fire({
             title: 'Error',
@@ -59,6 +63,7 @@ const ReviewDetails = () => {
       })
       .catch((error) => {
         console.error('Error adding to watchlist:', error);
+        setLoading(false);
         Swal.fire({
           title: 'Error',
           text: 'Something went wrong!',
@@ -112,13 +117,18 @@ const ReviewDetails = () => {
               <p><span className="font-bold text-[#A91D3A]">Email:</span> {review.userEmail}</p>
             </div>
             {
-                user ? <button
-                className="px-4 py-2 bg-[#A91D3A] text-white rounded-md shadow-lg hover:bg-[#9c1631] transition-all"
+                user ?  <button
+                type="submit"
+                className="w-56 py-2 px-2 md:px-4 bg-[#A91D3A] text-white rounded-md shadow-md hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center"
                 onClick={handleAddToWatchList}
               >
-                Add to WatchList
+                {loading ? (
+                  <div className="animate-spin rounded-full h-6 w-6 border-t-4 border-white"></div>
+                ) : (
+                  "Add to WatchList"
+                )}
               </button> : <button
-              className="px-4 py-2  bg-[#908d8e] text-white rounded-md shadow-lg hover:bg-[#6f6c6d] transition-all" 
+              className="w-56 py-2 px-2 md:px-4  bg-[#908d8e] text-white rounded-md shadow-lg hover:bg-[#6f6c6d] transition-all" 
               onClick={handleAddToWatchList}
             >
               Add to WatchList

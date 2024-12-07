@@ -44,7 +44,7 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#151515]  pt-20 px-4 flex justify-center items-start">
+        <div className="min-h-screen  pt-20 px-4 flex justify-center items-start">
         <div className='bg-[#151515]  p-2 sm:p-4 rounded-2xl shadow-2xl' data-aos='zoom-in-left'>
         <div className="max-w-4xl w-full  shadow-2xl shadow-[#A91D3A]  rounded-2xl  p-8 flex items-center justify-center gap-2" data-aos='zoom-in-left'>
                 <div className="flex-1">
@@ -56,7 +56,7 @@ const UpdateProfile = () => {
                                 type="text"
                                 value={formData.displayName}
                                 onChange={(e) => setFormData({...formData, displayName: e.target.value})}
-                                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
                             />
                         </div>
                         <div className="mb-4">
@@ -65,12 +65,12 @@ const UpdateProfile = () => {
                                 type="url"
                                 value={formData.photoURL}
                                 onChange={(e) => setFormData({...formData, photoURL: e.target.value})}
-                                className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
+                                className="text-black w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#A91D3A]"
                             />
                         </div>
                         <button
                             type="submit"
-                            className="bg-[#A91D3A] hover:bg-[#151515] px-4 py-2 sm:px-8 sm:py-3 rounded-3xl text-white sm:font-semibold transition-transform hover:scale-105 shadow-2xl"
+                            className="bg-[#A91D3A] hover:bg-[#9c1631] px-4 py-2 sm:px-8 sm:py-3 rounded-3xl text-white sm:font-semibold transition-transform hover:scale-105 shadow-2xl"
                         >
                             Update Information
                         </button>

@@ -17,6 +17,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const AddReview = () => {
   const { user } = useFirebaseAuth();
   const navigate = useNavigate();
+  const [loading , setLoading] = useState(false);
 
   // State management
   const [gameCover, setGameCover] = useState('');
@@ -57,10 +58,12 @@ const AddReview = () => {
 
     try {
       // Sending POST request to the server
-      const response = await axios.post('http://localhost:5000/addreview', reviewData);
+      setLoading(true);
+      const response = await axios.post('https://chillgamermostafiz16.vercel.app/addreview', reviewData);
       console.log(response);
 
       if (response.data.success) {
+        setLoading(false);
         Swal.fire({
             position: "top-center",
             icon: "success",
@@ -75,9 +78,18 @@ const AddReview = () => {
         setYear('');
         setGenre('');
       } else {
-        toast.error('Failed to submit review');
+        setLoading(false);
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: "Something went wrong try again",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     } catch (error) {
+      setLoading(false);
+
       console.error('Error submitting review:', error);
       toast.error('An error occurred. Please try again.');
     }
@@ -90,11 +102,11 @@ const AddReview = () => {
   return (
 <div className=' text-white min-h-screen mx-auto py-8'>
 
-  <h2 className="text-3xl font-bold text-[#A91D3A] text-center my-2">
+  <h2 className="text-3xl md:text-4xl font-bold text-[#A91D3A] text-center my-2">
 
 
   <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
-          {/* Style will be inherited from the parent element */}
+        
           <Typewriter
             words={['Add New Review', 'Become Top Reviewer', 'Get Point', 'Add New Review']}
             loop={5}
@@ -120,7 +132,7 @@ const AddReview = () => {
     </div>
 
     <form onSubmit={handleSubmit} className="space-y-4 md:flex-1 ">
-      {/* Game Cover URL */}
+ 
       <div className='flex flex-col md:flex-row gap-4'>
         <div className="mb-4 flex-1">
           <label htmlFor="gameCover" className="block text-sm font-medium text-white">Game Image URL</label>
@@ -134,7 +146,7 @@ const AddReview = () => {
           />
         </div>
 
-        {/* Game Title */}
+      
         <div className="mb-4 flex-1">
           <label htmlFor="gameTitle" className="block text-sm font-medium text-white">Game Title</label>
           <input
@@ -148,7 +160,7 @@ const AddReview = () => {
         </div>
       </div>
 
-      {/* Review Description */}
+    
       <div className="mb-4">
         <label htmlFor="reviewDescription" className="block text-sm font-medium text-white">Review Description</label>
         <textarea
@@ -160,7 +172,7 @@ const AddReview = () => {
         />
       </div>
 
-      {/* Rating & Year */}
+    
       <div className="mb-4 flex flex-wrap gap-4 md:flex-nowrap">
         <div className="w-full md:w-1/2">
           <label htmlFor="rating" className="block text-sm font-medium text-white">Rating</label>
@@ -189,7 +201,7 @@ const AddReview = () => {
         </div>
       </div>
 
-      {/* Genre */}
+    
       <div className="mb-4">
         <label htmlFor="genre" className="block text-sm font-medium text-white">Genre</label>
         <select
@@ -213,7 +225,7 @@ const AddReview = () => {
         </select>
       </div>
 
-      {/* User Email */}
+    
       <div className='flex flex-col md:flex-row gap-4'>
         <div className="mb-4 flex-1">
           <label className="block text-sm font-medium text-white">User Email</label>
@@ -225,7 +237,7 @@ const AddReview = () => {
           />
         </div>
 
-        {/* User Name */}
+     
         <div className="mb-4 flex-1">
           <label className="block text-sm font-medium text-white">User Name</label>
           <input
@@ -237,16 +249,21 @@ const AddReview = () => {
         </div>
       </div>
 
-      {/* Submit Button */}
+    
       <button
-        type="submit"
-        className="w-full py-2 px-4 bg-[#A91D3A] text-white rounded-md shadow-md hover:bg-[#9c1631] transition-all duration-300"
-      >
-        Submit Review
-      </button>
+  type="submit"
+  className="w-full py-2 px-4 bg-[#A91D3A] text-white rounded-md shadow-md hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center"
+>
+  {loading ? (
+    <div className="animate-spin rounded-full h-8 w-8 border-t-4 border-white"></div>
+  ) : (
+    "Submit Review"
+  )}
+</button>
+
     </form>
 
-    {/* Image section */}
+  
  
 
   </div>

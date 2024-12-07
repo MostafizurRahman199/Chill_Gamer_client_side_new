@@ -86,7 +86,7 @@ const TopReviewers = () => {
   useEffect(() => {
     // Fetch top reviewers from the backend
     axios
-      .get('http://localhost:5000/topReviewers')  // Adjust the endpoint if necessary
+      .get('https://chillgamermostafiz16.vercel.app/topReviewers')  // Adjust the endpoint if necessary
       .then((response) => {
         setTopReviewers(response.data);
       })
@@ -102,7 +102,7 @@ const TopReviewers = () => {
 
   return (
     <div className="w-full mx-auto px-4 py-8  bg-[#000000] my-20">
-      <h1 className="text-4xl font-bold text-[#A91D3A] text-center mb-6">
+      <h1 className="text-3xl md:text-5xl h-[100px]  font-bold text-[#A91D3A] text-center my-6">
 
       <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}
@@ -142,7 +142,7 @@ const TopReviewers = () => {
           </div>
         
           <div className="text-center ">
-            <h3 className="text-xl font-semibold text-[#A91D3A]">{reviewer.userName}</h3>
+            <h3 className="text-xl font-semibold text-[#A91D3A]">{reviewer.userName.split(" ")[0]}</h3>
             
             <p className="text-lg text-gray-300">Point: {reviewer.count}</p>
 

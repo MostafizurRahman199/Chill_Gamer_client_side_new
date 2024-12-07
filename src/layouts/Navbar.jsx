@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useFirebaseAuth } from '../Auth/AuthProvider';
@@ -10,7 +11,9 @@ import { VscOpenPreview } from 'react-icons/vsc';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import DarkModeToggle from '../components/Home/DarkModeToggle';
 import gamerLogo from "../assets/gamer3.png"
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 
+import 'react-tooltip/dist/react-tooltip.css'
 
 
 const Navbar = () => {
@@ -215,7 +218,18 @@ const Navbar = () => {
 
               </>
            )}
-             <DarkModeToggle></DarkModeToggle>
+
+          
+            <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Change Mode"
+            data-tooltip-place="top"
+            >
+            <DarkModeToggle></DarkModeToggle>
+
+          </a>
+          <ReactTooltip id="my-tooltip">This is a tooltip</ReactTooltip>
+
           </div>
 
 

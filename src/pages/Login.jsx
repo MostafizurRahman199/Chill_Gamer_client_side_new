@@ -8,6 +8,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Aos from 'aos';
 import { useEffect } from 'react';
 import loginImage    from "../assets/loginImage.png"
+import Swal from 'sweetalert2';
+import { sweetAlert } from '../utils/sweetAlert';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,27 +25,37 @@ const Login = () => {
   }, []);
 
 
+
+
+
   const showError = (error) => {
     if(error.code === 'auth/invalid-credential'){
-      toast.error('Invalid credentials');
+      // toast.error('Invalid credentials');
+      sweetAlert("Invalid credentials", 'error');
     }
     else if(error.code === 'auth/user-not-found'){
-      toast.error('User not found');
+      // toast.error('User not found');
+      sweetAlert("User not found", 'error');
     }
     else if(error.code === 'auth/wrong-password'){
-      toast.error('Wrong password');
+      // toast.error('Wrong password');
+      sweetAlert("Wrong password", 'error');
     }
     else if(error.code === 'auth/invalid-email'){
-      toast.error('Invalid email');
+      // toast.error('Invalid email');
+      sweetAlert("Invalid email", 'error');
     }
     else if(error.code === 'auth/too-many-requests'){
       toast.error('Too many requests');
+      sweetAlert("Too many requests", 'error');
     }
     else if(error.code === 'auth/email-already-in-use'){
-      toast.error('Email already in use');
+      // toast.error('Email already in use');
+      sweetAlert("Email already in use", 'error');
     }
     else{
-      toast.error("Something went wrong");
+      // toast.error("Something went wrong");
+      sweetAlert("Something went wrong", 'error');
     }
   }
 
@@ -51,7 +63,13 @@ const Login = () => {
     e.preventDefault();
     try {
       await loginUser(email, password);
-      toast.success('Successfully logged in!');
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Login Successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate(from, { replace: true });
     } catch (error) {
       showError(error);
@@ -62,6 +80,7 @@ const Login = () => {
     try {
       await googleSignIn();
       toast.success('Successfully logged in with Google!');
+      // sweetAlert("Successfully logged in with Google!", "success")
       navigate(from, { replace: true });
     } catch (error) {
       showError(error);
@@ -120,7 +139,7 @@ const Login = () => {
             <div className="text-sm">
               <button
                 onClick={handleForgotPassword}
-                className="font-medium text-[#A91D3A] hover:text-[#151515]"
+                className="font-medium text-[#A91D3A] hover:text-white"
               >
                 Forgot your password?
               </button>
@@ -130,7 +149,7 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center  border border-transparent text-sm  bg-[#A91D3A] hover:bg-[#151515] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A91D3A] px-8 py-3 rounded-md text-white font-bold transition-transform hover:scale-105 shadow-2xl"
+              className="group relative w-full flex justify-center  border border-transparent text-sm  bg-[#A91D3A] hover:bg-[#9c1631] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A91D3A] px-8 py-3 rounded-md text-white font-bold transition-transform hover:scale-105 shadow-2xl"
             >
               Login
             </button>
@@ -155,7 +174,7 @@ const Login = () => {
 
         <p className="mt-2 text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/register" className="font-medium text-[#A91D3A] hover:text-[#151515]">
+          <Link to="/register" className="font-medium text-[#A91D3A] hover:text-white">
             Register here
           </Link>
         </p>

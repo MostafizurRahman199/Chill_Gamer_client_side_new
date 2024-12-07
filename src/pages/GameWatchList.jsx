@@ -17,7 +17,7 @@ const GameWatchList = () => {
     if (email) {
       setLoading(true);
       axios
-        .get(`http://localhost:5000/watchlist/${email}`)
+        .get(`https://chillgamermostafiz16.vercel.app/watchlist/${email}`)
         .then((response) => {
          
           if (Array.isArray(response.data)) {
@@ -50,7 +50,7 @@ const GameWatchList = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/watchlist/${gameId}`)
+        axios.delete(`https://chillgamermostafiz16.vercel.app/watchlist/${gameId}`)
           .then(result => {
             if (result.data.success) {
               Swal.fire({

@@ -8,6 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import Aos from 'aos';
 import { useEffect } from 'react';
 import registerImage from "../assets/register.png"
+import { sweetAlert } from '../utils/sweetAlert';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -54,22 +55,22 @@ const Register = () => {
             const registeredUser = await registerUser(formData.email, formData.password, formData.name, formData.photoURL);
             setUser(registeredUser);
             if (registeredUser) {
-                toast.success('Registration successful!');
+                sweetAlert('Registration successful!', 'success');
                 // await registeredUser.reload();
                 navigate('/');
             }
         } catch (error) {
-            toast.error(error.message);
+            sweetAlert(error.message, 'error');
         }
     };
 
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
-            toast.success('Successfully signed in with Google!');
+            toast.success('Successfully signed in with Google!', 'success');
             navigate('/');
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error.message, 'error');
         }
     };
 
@@ -140,7 +141,7 @@ const Register = () => {
                     <div>
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center  border border-transparent text-sm  bg-[#A91D3A] hover:bg-[#151515] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A91D3A] px-8 py-3 rounded-md text-white font-bold transition-transform hover:scale-105 shadow-2xl">
+                            className="group relative w-full flex justify-center  border border-transparent text-sm  bg-[#A91D3A] hover:bg-[#9c1631]focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A91D3A] px-8 py-3 rounded-md text-white font-bold transition-transform hover:scale-105 shadow-2xl">
                             Register
                         </button>
                     </div>
@@ -164,7 +165,7 @@ const Register = () => {
 
                 <p className="mt-2 text-center text-sm text-gray-600">
                     Already have an account?{' '}
-                    <Link to="/login" className="font-medium text-[#A91D3A] hover:text-[#151515]">
+                    <Link to="/login" className="font-medium text-[#A91D3A] hover:text-white">
                         Login here
                     </Link>
                 </p>

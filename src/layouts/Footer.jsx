@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaGithub, FaLinkedin, FaTwitter, FaHeart, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
 
+import gamerLogo from "../assets/gamer3.png"
+
 const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-r from-[#A91D3A] to-[#151515]">
@@ -12,21 +14,28 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-white">
         
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-900 to-yellow-900">
+          <div className='flex justify-start items-center'>
+          <img
+                className="block md:hidden lg:block w-24"
+                src={gamerLogo}
+                alt="Logo"
+              />
+            <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-white">
               Chill Gamer
             </h3>
+          </div>
             <p className="text-sm leading-relaxed">
               Your one-stop destination for the best discount coupons from popular e-commerce shops in Bangladesh.
             </p>
-          </div>
 
+          </div>
        
           <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2">
               {['Home', 'About Us', 'All Coupons', 'Popular Stores'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="text-sm hover:text-purple-900 transition-colors duration-300">
+                  <a href="#" className="text-sm hover:text-black transition-colors duration-300">
                     {item}
                   </a>
                 </li>
@@ -39,15 +48,15 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Contact Us</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <FaMapMarkerAlt className="text-purple-900" />
+                <FaMapMarkerAlt className="text-white" />
                 <span className="text-sm">Dhaka, Bangladesh</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FaPhone className="text-purple-900" />
+                <FaPhone className="text-white" />
                 <span className="text-sm">+880 1234-567890</span>
               </div>
               <div className="flex items-center space-x-3">
-                <FaEnvelope className="text-purple-900" />
+                <FaEnvelope className="text-white" />
                 <span className="text-sm">info@discountpro.com</span>
               </div>
             </div>
@@ -63,7 +72,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="px-4 py-2 rounded-l-lg focus:outline-none text-gray-700 w-full"
               />
-              <button className="bg-purple-900 px-4 py-2 rounded-r-lg hover:bg-purple-800 transition-colors duration-300">
+              <button className="bg-black px-4 py-2 rounded-r-lg transition-colors duration-300">
                 Join
               </button>
             </div>
@@ -80,7 +89,7 @@ const Footer = () => {
             <a
               key={index}
               href={social.link}
-              className="transform hover:scale-110 transition-transform duration-300 text-purple-800 hover:text-purple-900"
+              className="transform hover:scale-110 transition-transform duration-300 text-gray-200  hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >

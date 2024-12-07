@@ -162,21 +162,22 @@ const router = createBrowserRouter([
                     </>
                 ),
             },
-            {
-                path: "*",
-                element: (
-                    <>
-                        <Helmet>
-                            <title>Chill Gamer - Error</title>
-                        </Helmet>
-                        <ErrorPage />
-                    </>
-                ),
-            },
-            
+           
            
         ],
     },
+    {
+        path: "*",
+        element: (
+            <>
+                <Helmet>
+                    <title>Chill Gamer - Error</title>
+                </Helmet>
+                <ErrorPage />
+            </>
+        ),
+    },
+    
   
 ]);
 

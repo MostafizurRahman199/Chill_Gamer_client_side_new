@@ -8,6 +8,7 @@ import Lottie from "lottie-react";
 
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,10 +37,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLoading(true);
    
     axios
-      .post('http://localhost:5000/contact', formData) 
+      .post('https://chillgamermostafiz16.vercel.app/contact', formData) 
       .then((response) => {
         Swal.fire({
           title: 'Thank you for contacting us!',
@@ -53,6 +54,8 @@ const Contact = () => {
         email: '',
         message: ''
        })
+
+       setLoading(false);
       })
       .catch((error) => {
         Swal.fire({
@@ -61,6 +64,8 @@ const Contact = () => {
           icon: 'error',
           confirmButtonColor: '#A91D3A',
         });
+
+        setLoading(false);
       });
   };
 
@@ -79,7 +84,7 @@ const Contact = () => {
       </div>
 
 
-      <div className="flex-1 flex justify-center items-center p-8 ">
+      <div className="flex-1 w-full flex justify-center items-center p-8 ">
       
         <form
           className="w-full max-w-lg p-1 md:p-6 rounded-l-lg "
@@ -152,10 +157,12 @@ const Contact = () => {
             type="submit"
             className="w-full py-3 bg-[#A91D3A] text-white text-xl font-semibold rounded-lg hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center gap-2"
           >
-            Send  <Lottie
+           { loading ? <div className="animate-spin rounded-full h-8 w-8 border-t-4 border-white"></div> : <> Send <Lottie
       animationData={send}
       style={style}
-    />
+    /></>}
+
+
           </button>
         </form>
       </div>

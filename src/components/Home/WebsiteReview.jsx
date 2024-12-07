@@ -4,9 +4,12 @@ import axios from 'axios';
 import Swal from 'sweetalert2';  // Import SweetAlert2
 import websiteAnimation from "../../../public/website2.json"
 import Lottie from 'lottie-react';
+import send from "../../../public/send.json"
+import { Typewriter } from 'react-simple-typewriter';
 
 const WebsiteReview = () => {
   const { user } = useFirebaseAuth();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     profession: '',
@@ -16,8 +19,13 @@ const WebsiteReview = () => {
 
 
 
-  const style = {
+  const style1 = {
     height: 500,
+  };
+  
+
+  const style2 = {
+    height: 30,
   };
   
 
@@ -33,7 +41,8 @@ const WebsiteReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/websiteReview', formData);
+      setLoading(true);
+      const response = await axios.post('https://chillgamermostafiz16.vercel.app/websiteReview', formData);
       if (response.data.success) {
         Swal.fire({
           icon: 'success',
@@ -42,7 +51,7 @@ const WebsiteReview = () => {
           confirmButtonText: 'OK',
           confirmButtonColor: '#A91D3A',
         });
-        
+        setLoading(false);
         setFormData({name: "",  profession: '', description: '', rating: 1 });
     }
 } catch (error) {
@@ -59,9 +68,32 @@ const WebsiteReview = () => {
     }
   };
 
+
+
+  
+
+
   return (
    <div>
-     <h2 className="text-4xl font-semibold text-[#A91D3A] text-center mb-6">Website Review</h2>
+     <h2 className="text-3xl h-[100px]  sm:text-3xl md:text-5xl font-bold  text-[#A91D3A] text-center mb-6 ">
+     <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Send Website Review',"Review For Website", "It's Dynamic", "Review For Website"]}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={50}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span>
+
+
+
+     </h2>
      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen  p-4">
    
       <div className="w-full md:w-1/2 p-6  max-w-lg">
@@ -120,9 +152,12 @@ const WebsiteReview = () => {
           <div>
             <button
               type="submit"
-              className="w-full p-3 bg-b-[#A91D3A] text-white  bg-[#d51a3f] transition duration-300"
+              className="w-full py-3 bg-[#A91D3A] text-white text-xl font-semibold rounded-lg hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center gap-2"
             >
-              Submit Review
+             { loading ? <div className="animate-spin rounded-full h-8 w-8 border-t-4 border-white"></div> : <> Submit Review <Lottie
+      animationData={send}
+      style={style2}
+    /></>}
             </button>
           </div>
         </form>
@@ -132,7 +167,7 @@ const WebsiteReview = () => {
       <div className="w-full md:w-1/2 p-6">
       <Lottie
       animationData={websiteAnimation}
-      style={style}
+      style={style1}
     />
       </div>
     </div>

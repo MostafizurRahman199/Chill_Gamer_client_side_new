@@ -28,12 +28,13 @@ const MyReviews = () => {
   const [year, setYear] = useState('');
   const [genre, setGenre] = useState('');
   const[loading, setLoading] = useState(false);
+  const [updateLoading , setUpdateLoading] = useState(false);
 
  
   useEffect(() => {
     if (email) {
       setLoading(true);
-      axios.get(`http://localhost:5000/myreviews/${email}`)
+      axios.get(`https://chillgamermostafiz16.vercel.app/myreviews/${email}`)
         .then(response => {
           setReviews(response.data);
           setLoading(false);
@@ -53,9 +54,10 @@ const MyReviews = () => {
 
 
   const handleUpdate = (reviewId) => {
-    axios.get(`http://localhost:5000/updateReviews/${reviewId}`)
+   
+    axios.get(`https://chillgamermostafiz16.vercel.app/updateReviews/${reviewId}`)
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
 
         const review = response.data;
         setGameCover(review.gameCover);
@@ -66,10 +68,12 @@ const MyReviews = () => {
         setGenre(review.genre);
         setSelectedReview(review); // Set the selected review for updating
         setShowModal(true); // Open modal
+     
 
       })
       .catch(error => {
         console.error('Error fetching review details:', error);
+     
       });
   };
 
@@ -86,10 +90,11 @@ const MyReviews = () => {
       year,
       genre,
     };
-
-    axios.put(`http://localhost:5000/updateReviews/${selectedReview._id}`, updatedReview)
+    setUpdateLoading(true);
+    axios.put(`https://chillgamermostafiz16.vercel.app/updateReviews/${selectedReview._id}`, updatedReview)
       .then(response => {
         if (response.data.success) {
+          setUpdateLoading(false);
           Swal.fire({
             title: "Updated!",
             text: "Your review has been updated.",
@@ -101,6 +106,7 @@ const MyReviews = () => {
           ));
           setShowModal(false); 
         } else {
+          setUpdateLoading(false);
           Swal.fire({
             title: "Error!",
             text: "Failed to update review.",
@@ -109,6 +115,7 @@ const MyReviews = () => {
         }
       })
       .catch(error => {
+        setUpdateLoading(false);
         console.error('Error updating review:', error);
         Swal.fire({
           title: "Error!",
@@ -130,7 +137,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/myreviews/${reviewId}`)
+        axios.delete(`https://chillgamermostafiz16.vercel.app/myreviews/${reviewId}`)
           .then(result => {
             if (result.data.success) {
               Swal.fire({
@@ -310,12 +317,24 @@ if(loading){
 
 
               <div className="flex gap-4 justify-center">
-                <button
+                {/* <button
                   type="submit"
                   className="px-6 py-2 bg-[#A91D3A] text-white rounded-md shadow-md hover:bg-[#9c1631]"
                 >
                   Update Review
-                </button>
+                </button> */}
+
+              <button
+                type="submit"
+                className="w-56 py-2 px-4 bg-[#A91D3A] text-white rounded-md shadow-md hover:bg-[#9c1631] transition-all duration-300 flex justify-center items-center"
+              >
+                {updateLoading ? (
+                  <div className="animate-spin rounded-full h-6 w-6 border-t-4 border-white"></div>
+                ) : (
+                  "Submit Review"
+                )}
+              </button>
+
                 <button
                   type="button"
                   className="px-6 py-2 bg-gray-600 text-white rounded-md shadow-md hover:bg-gray-700"

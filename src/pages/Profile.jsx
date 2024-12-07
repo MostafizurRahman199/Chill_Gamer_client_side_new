@@ -67,12 +67,12 @@ const Profile = () => {
                             />
                         </div>
 
-                        <h1 className="text-2xl font-bold mb-2 text-[#A91D3A]">{user?.displayName}</h1>
+                        <h1 className="text-2xl font-bold mb-2 text-center text-[#A91D3A]">{user?.displayName}</h1>
                         <p className="text-gray-600 mb-4">{user?.email}</p>
 
                         <button
                             onClick={handleUpdateClick}
-                            className="bg-[#A91D3A] hover:bg-[#151515] px-8 py-3 rounded-3xl text-white font-semibold transition-transform hover:scale-105 shadow-2xl"
+                            className="bg-[#A91D3A] hover:bg-[#9c1631] px-8 py-3 rounded-3xl text-white font-semibold transition-transform hover:scale-105 shadow-2xl"
                         >
                             Update Profile
                         </button>

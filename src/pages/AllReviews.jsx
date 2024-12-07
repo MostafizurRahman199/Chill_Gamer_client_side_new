@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
+import { Typewriter } from 'react-simple-typewriter';
 
 const AllReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -10,15 +11,19 @@ const AllReviews = () => {
   const [filterGenre, setFilterGenre] = useState('');
   const [genres, setGenres] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/reviews');
+        setLoading(true);
+        const response = await axios.get('https://chillgamermostafiz16.vercel.app/reviews');
         setReviews(response.data);
         const uniqueGenres = [...new Set(response.data.map(review => review.genre).flat())];
         setGenres(uniqueGenres);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.error('Error fetching reviews:', error);
       }
     };
@@ -69,9 +74,31 @@ const AllReviews = () => {
     return cleanedDescription;
   };
 
+  if(loading){
+    return <div className="min-h-screen flex items-center justify-center bg-[#151515] ">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#A91D3A]"></div>
+  </div>
+  }
+
   return (
-    <div className="text-white min-h-screen py-12">
-      <h2 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews</h2>
+    <div className=" min-h-screen py-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-[#A91D3A] text-center mb-8">All Reviews
+
+      <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
+        
+          <Typewriter
+            words={[' Sort', ' Search', ' Filter','.' ]}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={50}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            // onLoopDone={handleDone}
+            // onType={handleType}
+          />
+        </span>
+      </h2>
 
    
       <div className="flex justify-between mb-6 px-4 md:w-10/12 mx-auto">
@@ -80,7 +107,7 @@ const AllReviews = () => {
           <select
             value={sortOption}
             onChange={handleSortChange}
-            className="bg-[#1A1A1A] text-gray-300 border border-[#A91D3A] rounded-md p-2"
+            className=" text-black border border-[#A91D3A] rounded-md p-2"
           >
             <option value="rating-asc">Rating (Low to High)</option>
             <option value="rating-desc">Rating (High to Low)</option>
@@ -96,7 +123,7 @@ const AllReviews = () => {
             value={searchTerm}
             onChange={handleSearchChange}
             placeholder="Search Title..."
-            className="bg-[#1A1A1A] text-gray-300 border border-[#A91D3A] rounded-md p-2"
+            className="text-black border border-[#A91D3A] rounded-md p-2"
           />
         </div>
 
@@ -105,7 +132,7 @@ const AllReviews = () => {
           <select
             value={filterGenre}
             onChange={handleGenreChange}
-            className="bg-[#1A1A1A] text-gray-300 border border-[#A91D3A] rounded-md p-2"
+            className="text-black  border border-[#A91D3A] rounded-md p-2"
           >
             <option value="">All Genres</option>
             {genres.map((genre, index) => (

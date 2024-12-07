@@ -11,16 +11,20 @@ import Aos from 'aos';
 
 const HightestRatedGame = () => {
   const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
+    setLoading(true);
     axios
-      .get('http://localhost:5000/highestRated')  // Replace with your API endpoint
+      .get('https://chillgamermostafiz16.vercel.app/highestRated')  // Replace with your API endpoint
       .then((response) => {
         setGames(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching highest rated games:", error);
+        setLoading(false);
       });
   }, []);
 
@@ -29,10 +33,16 @@ const HightestRatedGame = () => {
     Aos.init({ duration: 1000 });
 }, []);
 
+if(loading){
+  return  <div className="min-h-screen flex items-center justify-center">
+  <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#A91D3A]"></div>
+</div>;
+}
+
 
   return (
-    <div className="w-10/12 mx-auto px-4 py-8 my-8">
-      <h1 className="text-4xl font-bold text-[#A91D3A] text-center mb-8">
+    <div className="md:w-10/12 mx-auto px-4 py-8 my-8">
+      <h1 className="text-3xl lg:text-5xl  h-[100px]  font-bold text-[#A91D3A] text-center mb-8">
 
       <span style={{ color: '#A91D3A', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}

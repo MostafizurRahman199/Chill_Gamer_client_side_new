@@ -9,6 +9,7 @@ import Aos from 'aos';
 import { useEffect } from 'react';
 import registerImage from "../assets/register.png"
 import { sweetAlert } from '../utils/sweetAlert';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const navigate = useNavigate();

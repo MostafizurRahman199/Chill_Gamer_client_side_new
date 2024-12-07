@@ -30,32 +30,32 @@ const Login = () => {
 
   const showError = (error) => {
     if(error.code === 'auth/invalid-credential'){
-      // toast.error('Invalid credentials');
-      sweetAlert("Invalid credentials", 'error');
+      toast.error('Invalid credentials');
+      // sweetAlert("Invalid credentials", 'error');
     }
     else if(error.code === 'auth/user-not-found'){
-      // toast.error('User not found');
-      sweetAlert("User not found", 'error');
+      toast.error('User not found');
+      // sweetAlert("User not found", 'error');
     }
     else if(error.code === 'auth/wrong-password'){
-      // toast.error('Wrong password');
-      sweetAlert("Wrong password", 'error');
+      toast.error('Wrong password');
+      // sweetAlert("Wrong password", 'error');
     }
     else if(error.code === 'auth/invalid-email'){
-      // toast.error('Invalid email');
-      sweetAlert("Invalid email", 'error');
+      toast.error('Invalid email');
+      // sweetAlert("Invalid email", 'error');
     }
     else if(error.code === 'auth/too-many-requests'){
       toast.error('Too many requests');
-      sweetAlert("Too many requests", 'error');
+      // sweetAlert("Too many requests", 'error');
     }
     else if(error.code === 'auth/email-already-in-use'){
-      // toast.error('Email already in use');
-      sweetAlert("Email already in use", 'error');
+      toast.error('Email already in use');
+      // sweetAlert("Email already in use", 'error');
     }
     else{
-      // toast.error("Something went wrong");
-      sweetAlert("Something went wrong", 'error');
+      toast.error("Something went wrong");
+      // sweetAlert("Something went wrong", 'error');
     }
   }
 
@@ -73,17 +73,30 @@ const Login = () => {
       navigate(from, { replace: true });
     } catch (error) {
       showError(error);
+
     }
   };
 
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      toast.success('Successfully logged in with Google!');
-      // sweetAlert("Successfully logged in with Google!", "success")
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Login Successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate(from, { replace: true });
     } catch (error) {
       showError(error);
+      Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "Something error, Try again",
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   };
 

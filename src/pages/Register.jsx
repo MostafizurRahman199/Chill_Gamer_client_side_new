@@ -55,12 +55,18 @@ const Register = () => {
             const registeredUser = await registerUser(formData.email, formData.password, formData.name, formData.photoURL);
             setUser(registeredUser);
             if (registeredUser) {
-                sweetAlert('Registration successful!', 'success');
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Register Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 // await registeredUser.reload();
                 navigate('/');
             }
         } catch (error) {
-            sweetAlert(error.message, 'error');
+            toast.error(error.message, 'error');
         }
     };
 

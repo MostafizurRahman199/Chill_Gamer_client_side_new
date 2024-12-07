@@ -49,8 +49,8 @@ const AddReview = () => {
       gameCover,
       gameTitle,
       reviewDescription,
-      rating,
-      year,
+      rating : parseInt(rating),
+      year:    parseInt(year),
       genre,
       userEmail: user.email,
       userName: user.displayName

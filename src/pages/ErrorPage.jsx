@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-// Tailwind CSS classes are used for styling
+
 const ErrorPage = () => {
 
   const navigate = useNavigate();

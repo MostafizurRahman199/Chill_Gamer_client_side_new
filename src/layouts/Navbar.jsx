@@ -200,24 +200,20 @@ const Navbar = () => {
               <VscOpenPreview className="lg:inline-block mr-1"/> All Reviews
             </Link>
 
-           {
-            user && (
-              <>
-
               <Link to="/addReview" className={getLinkStyle('/addReview')} onClick={() => setActiveLink('/addReview')}>
                 <MdAddBox className="lg:inline-block mr-1"/> Add Review
               </Link>
 
+
               <Link to="/myReview" className={getLinkStyle('/myReview')} onClick={() => setActiveLink('/addReview')}>
                 <FaUser className="lg:inline-block mr-1" /> My Review
               </Link>
-
+              
               <Link to="/gameWatchList" className={getLinkStyle('/gameWatchList')} onClick={() => setActiveLink('/gameWatchList')}>
                 <IoGameControllerOutline className="lg:inline-block mr-1" /> Game WatchList
               </Link>
 
-              </>
-           )}
+
 
           
             <a
@@ -340,9 +336,8 @@ const Navbar = () => {
           >
              <VscOpenPreview className="inline-block mr-1" /> All Reviews
           </Link>
-       { 
-      //  199
-       user && <>
+
+
            <Link 
             to="/addReview" 
             className={`block ${getLinkStyle('/addReview')}`}
@@ -376,8 +371,10 @@ const Navbar = () => {
           >
            <IoGameControllerOutline className="inline-block mr-1" /> Game WatchList
           </Link>
-       
-           <Link 
+
+
+       { user && <>
+         <Link 
             to="/my-profile" 
             className={`block ${getLinkStyle('/my-profile')}`}
             onClick={() => {
@@ -387,15 +384,7 @@ const Navbar = () => {
           >
             <FaUser className="inline-block mr-1" /> Profile
           </Link>
-
-          
-        
-       
-       </>
-          
-          
-          
-          }
+        </> }
          
 
              { user && <div className="flex justify-center"><ProfileImage user={user} /></div>} 

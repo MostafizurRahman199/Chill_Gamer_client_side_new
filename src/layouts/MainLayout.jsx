@@ -8,9 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { useFirebaseAuth } from "../Auth/AuthProvider";
 import { FaSpinner } from "react-icons/fa";
 import { ThemeProvider } from "../Auth/ThemeContext";
+import { useTheme } from "../components/Home/DarkModeToggle";
 
 const MainLayout = () => {
   const { user, loading } = useFirebaseAuth();
+  const {darkMode} = useTheme();
   return (
     <div className="font_poppins">
       <ToastContainer />
@@ -22,8 +24,8 @@ const MainLayout = () => {
       ) : (
         <>
     
-          <Navbar />
-          <div className="pt-16">
+          <Navbar /> 
+          <div className={`pt-16 `}>
             <Outlet />
           </div>
           <Footer />

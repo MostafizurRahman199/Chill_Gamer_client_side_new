@@ -8,10 +8,13 @@ import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai'; 
 import { Typewriter } from 'react-simple-typewriter';
 import Aos from 'aos';
+import StarRating from '../shared/StarRating';
+import { useTheme } from './DarkModeToggle';
 
 const HightestRatedGame = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {darkMode} = useTheme();
 
 
   useEffect(() => {
@@ -62,22 +65,27 @@ if(loading){
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6  ">
-        {games.map((review) => (<div key={review._id} className="bg-[#1A1A1A] rounded-lg shadow-md hover:shadow-lg p-6 shadow-[#A91D3A] hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300" > 
-           <div data-aos="fade-up">
+        {games.map((review) => (<div key={review._id} className={`bg-[#1A1A1A]  rounded-lg shadow-md hover:shadow-lg p-6 shadow-[#A91D3A] hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300`} > 
+           <div data-aos="fade-up" className='flex flex-col h-full justify-between'>
+           <div>
            <img
              src={review.gameCover}
              alt={review.gameTitle}
              className="w-full h-48 object-cover rounded-md mb-4  shadow-[#A91D3A]"
            />
            <h3 className="text-2xl font-semibold text-[#A91D3A]">{review.gameTitle}</h3>
-           <p className="text-gray-300 mb-4">{review.reviewDescription.substring(0, 100)}...</p>
-           <div className="flex justify-between items-center">
-             <span className="text-[#A91D3A]">Rating: {review.rating}</span>
+           {/* <p className="text-gray-300 mb-4">{review.reviewDescription.substring(0, 100)}...</p> */}
+           <div className="flex justify-between py-2 items-center">
+             {/* <span className="text-[#A91D3A]">Rating: {review.rating}</span> */}
+             <StarRating rating={review.rating}></StarRating>
              <span className="text-gray-400">{review.year}</span>
            </div>
-           <Link to={`/reviewDetails/${review._id}`} className="mt-4 inline-block px-6 py-2 bg-[#A91D3A] text-white rounded-md hover:bg-[#9c1631] transition-all duration-300">
+           </div>
+          <div>
+          <Link to={`/reviewDetails/${review._id}`} className="mt-4 inline-block px-6 py-2 bg-[#A91D3A] text-white rounded-md hover:bg-[#9c1631] transition-all duration-300">
              Explore Details
            </Link>
+          </div>
            </div>
          </div>
         ))}

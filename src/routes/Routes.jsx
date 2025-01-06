@@ -17,6 +17,8 @@ import AddReviews from "../pages/AddReviews";
 import MyReviews from "../pages/MyReviews";
 import GameWatchList from "../pages/GameWatchList";
 import ReviewDetails from "../pages/ReviewDetails";
+import AboutUs from "../pages/AboutUs";
+import SupportPage from "../pages/SupportPage";
 
 const router = createBrowserRouter([    
     {
@@ -44,6 +46,29 @@ const router = createBrowserRouter([
                             <title>Chill Gamer - Register</title>
                         </Helmet>
                         <Register />
+                    </>
+                ),
+            },
+            {
+                path: "/about-us",
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Chill Gamer - AboutUs</title>
+                        </Helmet>
+                        <AboutUs />
+                    </>
+                ),
+            },
+           
+            {
+                path: "/support",
+                element: (
+                    <>
+                        <Helmet>
+                            <title>Chill Gamer - Support</title>
+                        </Helmet>
+                        <SupportPage />
                     </>
                 ),
             },

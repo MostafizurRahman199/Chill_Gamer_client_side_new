@@ -9,11 +9,12 @@ import { Tooltip, Button } from "@material-tailwind/react";
 import { MdAddBox } from 'react-icons/md';
 import { VscOpenPreview } from 'react-icons/vsc';
 import { IoGameControllerOutline } from 'react-icons/io5';
-import DarkModeToggle from '../components/Home/DarkModeToggle';
+import DarkModeToggle, { useTheme } from '../components/Home/DarkModeToggle';
 import gamerLogo from "../assets/gamer3.png"
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 
 import 'react-tooltip/dist/react-tooltip.css'
+import { MdOutlineRateReview } from "react-icons/md";
 
 
 const Navbar = () => {
@@ -25,6 +26,7 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = React.useState(location.pathname);
   const { user, logOut, loading } = useFirebaseAuth();
   const navigate = useNavigate();
+  const {darkMode} = useTheme();
   
   
 
@@ -74,7 +76,7 @@ const Navbar = () => {
   `;
 
 
-
+  const isProfileActive = ["/my-space","/gameWatchList", "/myReview", "/addReview"].includes(activeLink);
 
 
   // ___________________________logout handler
@@ -200,18 +202,85 @@ const Navbar = () => {
               <VscOpenPreview className="lg:inline-block mr-1"/> All Reviews
             </Link>
 
-              <Link to="/addReview" className={getLinkStyle('/addReview')} onClick={() => setActiveLink('/addReview')}>
+         
+
+            {/* <Link to="/addReview" className={getLinkStyle('/addReview')} onClick={() => setActiveLink('/addReview')}>
                 <MdAddBox className="lg:inline-block mr-1"/> Add Review
-              </Link>
+              </Link> */}
+
+            <Link to="/support" className={getLinkStyle('/support')} onClick={() => setActiveLink('/support')}>
+              <VscOpenPreview className="lg:inline-block mr-1"/> Support
+            </Link>
 
 
-              <Link to="/myReview" className={getLinkStyle('/myReview')} onClick={() => setActiveLink('/addReview')}>
+            <Link to="/about-us" className={getLinkStyle('/about-us')} onClick={() => setActiveLink('/about-us')}>
+              <VscOpenPreview className="lg:inline-block mr-1"/> About Us
+            </Link>
+
+
+            {
+              user && <div className={`dropdown dropdown-bottom ${isProfileActive ? "active-class" : ""}`}>
+              <div
+                tabIndex={0}
+                role="button"
+                className={`px-4 py-2 cursor-pointer ${
+                  isProfileActive ? `text-[#A91D3A] border-b-[3px] border-[#A91D3A]` : ` hover:text-[#A91D3A]  ${darkMode == true ? "text-black" : "text-black"}`
+                }`}
+                onClick={() => setActiveLink("/my-space")}
+              >
+                My Space
+              </div>
+              <ul
+                tabIndex={0}
+                className={`dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow ${darkMode == true ? "text-white bg-black" : "text-black bg-white"}`}
+              >
+                <li className="my-1 ">
+                  <Link
+                    to="/addReview"
+                    className={getLinkStyle("/addReview")}
+                  >
+                   <MdAddBox className="lg:inline-block mr-1"/> Add Review
+                  </Link>
+                </li>
+                <li className="my-1">
+                  <Link
+                    to="/myReview"
+                    className={getLinkStyle("/myReview")}
+                  >
+                    <MdOutlineRateReview className="lg:inline-block mr-1" />
+                    My Review
+                  </Link>
+                </li>
+                <li className="my-1">
+                  <Link
+                    to="/gameWatchList"
+                    className={getLinkStyle("/gameWatchList")}
+                  >
+                   <IoGameControllerOutline className="lg:inline-block mr-1" /> Game WatchList
+                  </Link>
+                </li>
+                <li className="my-1">
+                  <Link
+                    to="/my-profile"
+                    className={getLinkStyle("/my-profile")}
+                  >
+                    <FaUser className="lg:inline-block mr-1" /> My Profile
+                  </Link>
+                </li>
+               
+              </ul>
+            </div>
+            }
+        
+
+
+              {/* <Link to="/myReview" className={getLinkStyle('/myReview')} onClick={() => setActiveLink('/addReview')}>
                 <FaUser className="lg:inline-block mr-1" /> My Review
-              </Link>
+              </Link> */}
               
-              <Link to="/gameWatchList" className={getLinkStyle('/gameWatchList')} onClick={() => setActiveLink('/gameWatchList')}>
+              {/* <Link to="/gameWatchList" className={getLinkStyle('/gameWatchList')} onClick={() => setActiveLink('/gameWatchList')}>
                 <IoGameControllerOutline className="lg:inline-block mr-1" /> Game WatchList
-              </Link>
+              </Link> */}
 
 
 
@@ -375,8 +444,8 @@ const Navbar = () => {
 
        { user && <>
          <Link 
-            to="/my-profile" 
-            className={`block ${getLinkStyle('/my-profile')}`}
+            to="/my-space" 
+            className={`block ${getLinkStyle('/my-space')}`}
             onClick={() => {
               setActiveLink('/my-profile');
               setIsMobileMenuOpen(false);

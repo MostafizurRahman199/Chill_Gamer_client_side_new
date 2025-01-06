@@ -7,7 +7,7 @@ import send from "../../../public/send.json"
 import Lottie from "lottie-react";
 
 
-const Contact = () => {
+const Contact = ({width="10/12"}) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -70,7 +70,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full md:w-10/12  mx-auto flex flex-col items-center justify-center md:flex-row min-h-[600px]  border-2 border-[#A91D3A] md:rounded-3xl bg-[#151515] shadow-custom">
+    <div className={`w-full md:w-${width}  mx-auto flex flex-col items-center justify-center md:flex-row min-h-[600px]  border-2 border-[#A91D3A] md:rounded-3xl bg-[#151515] shadow-custom`}>
    
            
 

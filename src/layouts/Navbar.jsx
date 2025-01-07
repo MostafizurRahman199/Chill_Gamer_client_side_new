@@ -1,4 +1,4 @@
-
+import { CiLogout } from "react-icons/ci";
 import React, { useEffect } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useFirebaseAuth } from '../Auth/AuthProvider';
@@ -384,16 +384,16 @@ const Navbar = () => {
    
       <div 
         className={`
-          md:hidden fixed  top-16 bg-white shadow-lg
+          md:hidden fixed  top-16 ${darkMode == true ? "text-white bg-black" : "text-black bg-white"}  shadow-lg
           transform transition-all duration-300 ease-in-out z-100
           ${isMobileMenuOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-full opacity-0 invisible'}
         `}
       >
       
-        <div className="absolute inset-0 bg-blue-50" />
+        <div className="absolute inset-0 " />
         
       
-        <div className="relative px-4 pt-2 pb-3 space-y-2">
+        <div className="relative px-4 pt-2 pb-2 ">
           <Link 
             to="/" 
             className={`block ${getLinkStyle('/')}`}
@@ -419,7 +419,9 @@ const Navbar = () => {
           </Link>
 
 
-           <Link 
+         {
+          user && <>
+            <Link 
             to="/addReview" 
             className={`block ${getLinkStyle('/addReview')}`}
             onClick={() => {
@@ -453,6 +455,19 @@ const Navbar = () => {
            <IoGameControllerOutline className="inline-block mr-1" /> Game WatchList
           </Link>
 
+          
+          </>
+         }
+
+           <Link to="/support"  className={`block ${getLinkStyle('/support')}`} onClick={() => setActiveLink('/support')}>
+              <VscOpenPreview className="inline-block mr-1"/> Support
+            </Link>
+
+
+            <Link to="/about-us"  className={`block ${getLinkStyle('/about-us')}`} onClick={() => setActiveLink('/about-us')}>
+              <VscOpenPreview className="inline-block mr-1"/> About Us
+            </Link>
+
 
        { user && <>
          <Link 
@@ -466,6 +481,22 @@ const Navbar = () => {
             <FaUser className="inline-block mr-1" /> Profile
           </Link>
         </> }
+
+        {
+            user && (
+              <button
+              className={`block ${getLinkStyle('/login')}`}
+              onClick={handleLogout}
+              >
+               <CiLogout className ="inline-block mr-1" /> Logout
+            </button>
+            )
+          }
+             
+             
+                
+              
+
          
 
              { user && <div className="flex justify-center"><ProfileImage user={user} /></div>} 
@@ -473,16 +504,7 @@ const Navbar = () => {
                     {user.email?.split('.')[0] || user.email || 'User'}
                   </div>}  */}
 
-          {
-            user && (
-              <button
-              onClick={handleLogout}
-              className="bg-[#151515]  px-6 py-2 rounded-3xl text-white font-semibold transition-transform hover:scale-105 shadow-2xl  hover:bg-[#A91D3A] "
-            >
-              Logout
-            </button>
-            )
-          }
+         
           
           {/* Add login button for mobile */}
           {!user && (
@@ -530,198 +552,3 @@ export default Navbar
 
 
 
-
-
-
-// import React, { useEffect } from 'react';
-// import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { useFirebaseAuth } from '../Auth/AuthProvider';
-// import { FaHome, FaUser, FaSignInAlt, FaUserPlus, FaTags } from 'react-icons/fa';
-// import { MdAddBox } from 'react-icons/md';
-// import { VscOpenPreview } from 'react-icons/vsc';
-// import { IoGameControllerOutline } from 'react-icons/io5';
-// import DarkModeToggle from '../components/Home/DarkModeToggle';
-// import { Tooltip } from '@material-tailwind/react';
-// import logo from '../assets/logoNav.png';
-
-// const Navbar = () => {
-//   const location = useLocation();
-//   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-//   const [activeLink, setActiveLink] = React.useState(location.pathname);
-//   const { user, logOut, loading } = useFirebaseAuth();
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     setActiveLink(location.pathname);
-//   }, [location.pathname]);
-
-//   if (loading) {
-//     return <div className="h-16" />;
-//   }
-
-//   const getLinkStyle = (path) => `
-//     relative px-2 py-2 text-sm font-medium transition-colors duration-200
-//     ${activeLink === path ? 'text-[#A91D3A]' : 'text-gray-700 hover:text-[#A91D3A]'}
-//     before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 
-//     before:bg-[#A91D3A] before:transform before:scale-x-0 before:transition-transform
-//     before:duration-300 hover:before:scale-x-100
-//     ${activeLink === path ? 'before:scale-x-100' : ''}
-//   `;
-
-//   const handleLogout = async () => {
-//     try {
-//       await logOut();
-//       navigate('/');
-//     } catch (error) {
-//       console.error('Logout error:', error);
-//     }
-//   };
-
-//   const getProfileImage = (user) => {
-//     if (user?.photoURL) return user.photoURL;
-//     if (user?.providerData) {
-//       for (const provider of user.providerData) {
-//         if (provider?.photoURL) return provider.photoURL;
-//       }
-//     }
-//     return 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
-//   };
-
-//   const ProfileImage = ({ user }) => {
-//     const [imageError, setImageError] = React.useState(false);
-//     const imageUrl = !imageError ? getProfileImage(user) : 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
-
-//     return (
-//       <Tooltip className="cursor-pointer bg-[#151515] text-white" content={`Hi ${user.displayName || 'User'}!`}>
-//         <img
-//           className="h-8 w-8 rounded-full object-cover border border-gray-200 cursor-pointer hover:scale-110 transition-transform duration-200"
-//           src={imageUrl}
-//           alt={user.displayName || 'Profile'}
-//           onError={() => setImageError(true)}
-//         />
-//       </Tooltip>
-//     );
-//   };
-
-//   return (
-//     <nav className="bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-lg">
-//       <div className="w-full mx-auto px-2 sm:px-2 lg:px-8">
-//         <div className="flex justify-between items-center h-16">
-//           {/* Logo Section */}
-//           <div className="flex-shrink-0">
-//             <Link to="/" className="flex items-center space-x-4">
-//               <img className="block md:hidden lg:block h-10 w-auto sm:h-10" src={logo} alt="Logo" />
-//               <span className="text-3xl sm:text-3xl md:text-xl lg:text-3xl font-bold bg-gradient-to-r from-[#A91D3A] to-[#151515] bg-clip-text text-transparent">
-//                 Chill Gamer
-//               </span>
-//             </Link>
-//           </div>
-
-//           {/* Desktop Navigation Links */}
-//           <div className="hidden md:flex items-center space-x-4">
-//             <Link to="/" className={getLinkStyle('/')} onClick={() => setActiveLink('/')}>
-//               <FaHome className="mr-1" /> Home
-//             </Link>
-//             <Link to="/allReviews" className={getLinkStyle('/allReviews')} onClick={() => setActiveLink('/allReviews')}>
-//               <VscOpenPreview className="mr-1" /> All Reviews
-//             </Link>
-
-//             {user && (
-//               <>
-//                 <Link to="/addReview" className={getLinkStyle('/addReview')} onClick={() => setActiveLink('/addReview')}>
-//                   <MdAddBox className="mr-1" /> Add Review
-//                 </Link>
-//                 <Link to="/myReview" className={getLinkStyle('/myReview')} onClick={() => setActiveLink('/myReview')}>
-//                   <FaUser className="mr-1" /> My Review
-//                 </Link>
-//                 <Link to="/gameWatchList" className={getLinkStyle('/gameWatchList')} onClick={() => setActiveLink('/gameWatchList')}>
-//                   <IoGameControllerOutline className="mr-1" /> Game WatchList
-//                 </Link>
-//               </>
-//             )}
-//             <DarkModeToggle />
-//           </div>
-
-//           {/* User Profile or Login */}
-//           <div className="hidden md:flex items-center gap-2">
-//             {user ? (
-//               <div className="flex items-center gap-4">
-//                 <Link to="/my-profile" className="flex flex-col lg:flex-row items-center justify-center gap-2">
-//                   <ProfileImage user={user} />
-//                 </Link>
-//                 <button onClick={handleLogout} className="bg-[#151515] px-6 py-2 rounded-3xl text-white font-semibold hover:bg-[#A91D3A] transition-all">
-//                   Logout
-//                 </button>
-//               </div>
-//             ) : (
-//               <>
-//                 <Link to="/login" className="px-6 py-2 rounded-3xl text-white font-bold bg-[#A91D3A] hover:scale-105 transition-all">
-//                   Login
-//                 </Link>
-//                 <Link to="/register" className="px-6 py-2 rounded-3xl text-white font-bold bg-[#151515] hover:scale-105 transition-all">
-//                   Register
-//                 </Link>
-//               </>
-//             )}
-//           </div>
-
-//           {/* Mobile Menu Button */}
-//           <div className="md:hidden flex items-center">
-//             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700 hover:text-blue-600 p-2 rounded-md">
-//               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-//               </svg>
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Mobile Menu */}
-//       <div className={`md:hidden fixed top-[300px] bg-white shadow-lg w-full transform transition-all duration-300 ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-//         <div className="px-4 pt-2 pb-3 space-y-2">
-//           <Link to="/" className={getLinkStyle('/')} onClick={() => setActiveLink('/')}>
-//             <FaHome className="mr-1" /> Home
-//           </Link>
-//           <Link to="/allReviews" className={getLinkStyle('/allReviews')} onClick={() => setActiveLink('/allReviews')}>
-//             <FaTags className="mr-1" /> All Reviews
-//           </Link>
-
-//           {user && (
-//             <>
-//               <Link to="/addReview" className={getLinkStyle('/addReview')} onClick={() => setActiveLink('/addReview')}>
-//                 <MdAddBox className="mr-1" /> Add Review
-//               </Link>
-//               <Link to="/myReview" className={getLinkStyle('/myReview')} onClick={() => setActiveLink('/myReview')}>
-//                 <FaUser className="mr-1" /> My Review
-//               </Link>
-//               <Link to="/gameWatchList" className={getLinkStyle('/gameWatchList')} onClick={() => setActiveLink('/gameWatchList')}>
-//                 <IoGameControllerOutline className="mr-1" /> Game WatchList
-//               </Link>
-//             </>
-//           )}
-
-//           <div className="flex justify-center">
-//             {user && <ProfileImage user={user} />}
-//           </div>
-
-//           {user ? (
-//             <button onClick={handleLogout} className="bg-[#151515] px-6 py-2 rounded-3xl text-white font-semibold hover:bg-[#A91D3A] transition-all">
-//               Logout
-//             </button>
-//           ) : (
-//             <>
-//               <Link to="/login" className="block py-2 text-center text-[#A91D3A]">Login</Link>
-//               <Link to="/register" className="block py-2 text-center text-[#151515]">Register</Link>
-//             </>
-//           )}
-//         </div>
-//       </div>
-
-
-
-      
-//     </nav>
-//   );
-// };
-
-// export default Navbar;

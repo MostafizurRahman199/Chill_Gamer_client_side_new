@@ -11,7 +11,7 @@ const SupportPage = () => {
             <div className='flex justify-center h-40'>
                 <img src={support} className='mx-auto' alt="" />
             </div>
-          <h1 className="text-5xl font-extrabold text-[#A91D3A] mb-10">Support</h1>
+          <h1 className="text-5xl font_header text-[#A91D3A] mb-10">Support</h1>
           <p className="text-lg text-gray-300 mt-4">
             Need help? Explore our FAQs or reach out to us directly. We’re here to support you on your gaming journey.
           </p>
@@ -19,7 +19,7 @@ const SupportPage = () => {
 
         {/* FAQ Section */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center text-[#A91D3A] mb-8">Questions and Answers</h2>
+          <h2 className="text-3xl font_header text-center text-[#A91D3A] mb-8">Questions and Answers</h2>
           <div className="space-y-6">
             <div className="collapse collapse-arrow bg-[#1e1e1e] rounded-lg">
               <input type="radio" name="faq" defaultChecked />
@@ -71,7 +71,7 @@ const SupportPage = () => {
 
         {/* Contact Section */}
         <div className=" py-12 ">
-          <h2 className="text-3xl font-bold text-center text-[#A91D3A] mb-8">Still Need Help?</h2>
+          <h2 className="text-3xl font_header text-center text-[#A91D3A] mb-8">Still Need Help?</h2>
            <Contact width={"full"}></Contact>
         </div>
       </div>

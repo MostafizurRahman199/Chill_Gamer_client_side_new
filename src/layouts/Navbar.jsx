@@ -66,14 +66,24 @@ const Navbar = () => {
   // `;
 
 
-    const getLinkStyle = (path) => `
-    relative px-2 py-2 text-sm font-bold  font_header transition-colors duration-200
-    ${activeLink === path ? 'text-[#A91D3A]' : 'text-black hover:text-[#A91D3A]'}
-    before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 
-    before:bg-[#A91D3A] before:transform before:scale-x-0 before:transition-transform
-    before:duration-300 hover:before:scale-x-100
-    ${activeLink === path ? 'before:scale-x-100' : ''}
-  `;
+  //   const getLinkStyle = (path) => `
+  //   relative px-2 py-2 text-sm font-bold  font_header transition-colors duration-200
+  //   ${activeLink === path ? 'text-[#A91D3A]' : 'text-black hover:text-[#A91D3A]'}
+  //   before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 
+  //   before:bg-[#A91D3A] before:transform before:scale-x-0 before:transition-transform
+  //   before:duration-300 hover:before:scale-x-100
+  //   ${activeLink === path ? 'before:scale-x-100' : ''}
+  // `;
+
+
+  const getLinkStyle = (path) => `
+  relative px-2 py-2 text-sm font-bold  font_header transition-colors duration-200
+  ${activeLink === path ? 'text-[#e20f3a]' : `${darkMode == true ? "text-white" : "text-black"} hover:text-[#e20f3a]`}
+  before:absolute before:bottom-0 before:left-0 before:w-full before:h-0.5 
+  before:bg-[#A91D3A] before:transform before:scale-x-0 before:transition-transform
+  before:duration-300 hover:before:scale-x-100
+  ${activeLink === path ? 'before:scale-x-100' : ''}
+`;
 
 
   const isProfileActive = ["/my-space","/gameWatchList", "/myReview", "/addReview"].includes(activeLink);
@@ -166,7 +176,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className=" font_header bg-white/80 backdrop-blur-md fixed  shadow-lg w-full top-0 z-50">
+    <nav className={` font_header ${darkMode == true ? "bg-black/20" : "bg-white"}  backdrop-blur-md fixed  shadow-lg w-full top-0 z-50`}>
       <div className="w-11/12 mx-auto px-2 sm:px-2 lg:px-2">
         <div className="flex justify-between items-center h-16">
        
@@ -177,7 +187,9 @@ const Navbar = () => {
                 src={gamerLogo}
                 alt="Logo"
               />
-              <span className="font_header text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold bg-gradient-to-r from-[#A91D3A] to-[#151515] bg-clip-text text-transparent truncate">
+              <span className={`font_header text-3xl sm:text-3xl md:text-xl lg:text-3xl text-md font-bold 
+               ${darkMode == true ? "bg-gradient-to-r from-[#A91D3A] to-[#b7b4b4] bg-clip-text text-transparent truncate" : "bg-gradient-to-r from-[#A91D3A] to-[#151515] bg-clip-text text-transparent truncate"} 
+                `}>
               Chill Gamer
               </span>
             </Link>
@@ -224,7 +236,7 @@ const Navbar = () => {
                 tabIndex={0}
                 role="button"
                 className={`px-4 py-2 cursor-pointer ${
-                  isProfileActive ? `text-[#A91D3A] border-b-[3px] border-[#A91D3A]` : ` hover:text-[#A91D3A]  ${darkMode == true ? "text-black" : "text-black"}`
+                  isProfileActive ? `text-[#A91D3A] border-b-[3px] border-[#A91D3A]` : ` hover:text-[#A91D3A]  ${darkMode == true ? "text-white" : "text-black"}`
                 }`}
                 onClick={() => setActiveLink("/my-space")}
               >
@@ -234,7 +246,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className={`dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow ${darkMode == true ? "text-white bg-black" : "text-black bg-white"}`}
               >
-                <li className="my-1 ">
+                <li className={`my-1`}>
                   <Link
                     to="/addReview"
                     className={getLinkStyle("/addReview")}

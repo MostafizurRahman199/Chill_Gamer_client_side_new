@@ -82,9 +82,9 @@ const DarkModeToggle = () => {
     <div>
       <button onClick={toggleTheme}>
         {darkMode ? (
-          <FiSun className="text-black text-2xl" />
+          <FiSun className={`${darkMode == true ? "text-white" : "text-black"}  text-2xl`} />
         ) : (
-          <FaRegMoon className="text-black text-xl" />
+          <FaRegMoon className={`${darkMode == true ? "text-white" : "text-black"}  text-xl`} />
         )}
       </button>
     </div>

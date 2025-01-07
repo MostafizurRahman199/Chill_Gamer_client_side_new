@@ -86,7 +86,7 @@ const Register = () => {
             <div className="w-full flex flex-col md:flex md:flex-row justify-center items-center gap-4  space-y-8 sm:shadow-custom  p-8  rounded-2xl bg-[#000000]" data-aos="fade-up">
               <div className='flex-1'>
               <div>
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-[#A91D3A]">
+                    <h2 className="mt-6 text-center text-3xl font_header text-[#A91D3A]">
                         Create your account
                     </h2>
                 </div>

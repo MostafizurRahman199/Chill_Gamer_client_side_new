@@ -34,7 +34,7 @@ const MyReviews = () => {
   useEffect(() => {
     if (email) {
       setLoading(true);
-      axios.get(`https://chillgamermostafiz16.vercel.app/myreviews/${email}`)
+      axios.get(`https://chillgamer2025.vercel.app/myreviews/${email}`)
         .then(response => {
           setReviews(response.data);
           setLoading(false);
@@ -55,7 +55,7 @@ const MyReviews = () => {
 
   const handleUpdate = (reviewId) => {
    
-    axios.get(`https://chillgamermostafiz16.vercel.app/updateReviews/${reviewId}`)
+    axios.get(`https://chillgamer2025.vercel.app/updateReviews/${reviewId}`)
       .then(response => {
         // console.log(response.data)
 
@@ -91,7 +91,7 @@ const MyReviews = () => {
       genre,
     };
     setUpdateLoading(true);
-    axios.put(`https://chillgamermostafiz16.vercel.app/updateReviews/${selectedReview._id}`, updatedReview)
+    axios.put(`https://chillgamer2025.vercel.app/updateReviews/${selectedReview._id}`, updatedReview)
       .then(response => {
         if (response.data.success) {
           setUpdateLoading(false);
@@ -137,7 +137,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://chillgamermostafiz16.vercel.app/myreviews/${reviewId}`)
+        axios.delete(`https://chillgamer2025.vercel.app/myreviews/${reviewId}`)
           .then(result => {
             if (result.data.success) {
               Swal.fire({

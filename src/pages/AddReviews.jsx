@@ -59,7 +59,7 @@ const AddReview = () => {
     try {
       // Sending POST request to the server
       setLoading(true);
-      const response = await axios.post('https://chillgamermostafiz16.vercel.app/addreview', reviewData);
+      const response = await axios.post('https://chillgamer2025.vercel.app/addreview', reviewData);
       console.log(response);
 
       if (response.data.success) {

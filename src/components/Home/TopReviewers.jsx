@@ -86,7 +86,7 @@ const TopReviewers = () => {
   useEffect(() => {
     // Fetch top reviewers from the backend
     axios
-      .get('https://chillgamermostafiz16.vercel.app/topReviewers')  // Adjust the endpoint if necessary
+      .get('https://chillgamer2025.vercel.app/topReviewers')  // Adjust the endpoint if necessary
       .then((response) => {
         setTopReviewers(response.data);
       })

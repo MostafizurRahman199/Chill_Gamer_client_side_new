@@ -6,6 +6,7 @@ import TopReviewers from './TopReviewers'
 import Contact from './Contact'
 import { ThemeProvider } from '../../Auth/ThemeContext'
 import WebsiteReview from './WebsiteReview'
+import PromotionalCard from './PromotionalCard'
 
 
 
@@ -24,6 +25,7 @@ const Home = () => {
         <Contact></Contact>
         <Reviews />
         <WebsiteReview></WebsiteReview>
+        <PromotionalCard></PromotionalCard>
     </div>
 
   )

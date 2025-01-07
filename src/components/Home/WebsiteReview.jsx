@@ -42,7 +42,7 @@ const WebsiteReview = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post('https://chillgamermostafiz16.vercel.app/websiteReview', formData);
+      const response = await axios.post('https://chillgamer2025.vercel.app/websiteReview', formData);
       if (response.data.success) {
         Swal.fire({
           icon: 'success',

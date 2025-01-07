@@ -20,7 +20,7 @@ const HightestRatedGame = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('https://chillgamermostafiz16.vercel.app/highestRated')  // Replace with your API endpoint
+      .get('https://chillgamer2025.vercel.app/highestRated')  // Replace with your API endpoint
       .then((response) => {
         setGames(response.data);
         setLoading(false);
@@ -64,8 +64,8 @@ if(loading){
 
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6  ">
-        {games.map((review) => (<div key={review._id} className={`bg-[#1A1A1A]  rounded-lg shadow-md hover:shadow-lg p-6 shadow-[#A91D3A] hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300`} > 
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6  ">
+        {games.map((review) => (<div key={review._id} className={`bg-[#1A1A1A]  rounded-lg shadow-md hover:shadow-lg p-4  hover:shadow-[#A91D3A] hover:scale-105 transition-all duration-300`} > 
            <div data-aos="fade-up" className='flex flex-col h-full justify-between'>
            <div>
            <img
@@ -73,7 +73,7 @@ if(loading){
              alt={review.gameTitle}
              className="w-full h-48 object-cover rounded-md mb-4  shadow-[#A91D3A]"
            />
-           <h3 className="text-2xl font-semibold text-[#A91D3A]">{review.gameTitle}</h3>
+           <h3 className="text-xl font-semibold text-[#A91D3A]">{review.gameTitle}</h3>
            {/* <p className="text-gray-300 mb-4">{review.reviewDescription.substring(0, 100)}...</p> */}
            <div className="flex justify-between py-2 items-center">
              {/* <span className="text-[#A91D3A]">Rating: {review.rating}</span> */}

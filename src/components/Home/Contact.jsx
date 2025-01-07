@@ -40,7 +40,7 @@ const Contact = ({width="10/12"}) => {
     setLoading(true);
    
     axios
-      .post('https://chillgamermostafiz16.vercel.app/contact', formData) 
+      .post('https://chillgamer2025.vercel.app/contact', formData) 
       .then((response) => {
         Swal.fire({
           title: 'Thank you for contacting us!',

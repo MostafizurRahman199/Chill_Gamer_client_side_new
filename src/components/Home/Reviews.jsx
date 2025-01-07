@@ -39,7 +39,7 @@ const Reviews = () => {
   useEffect(() => {
  
     const fetchReviews = async () => {
-      const response = await axios.get("https://chillgamermostafiz16.vercel.app/websiteReview");
+      const response = await axios.get("https://chillgamer2025.vercel.app/websiteReview");
       console.log(response.data);
       setReviews(response.data);
     };

@@ -21,7 +21,7 @@ const AllReviews = () => {
     const fetchReviews = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://chillgamermostafiz16.vercel.app/reviews');
+        const response = await axios.get('https://chillgamer2025.vercel.app/reviews');
         setReviews(response.data);
         const uniqueGenres = [...new Set(response.data.map(review => review.genre).flat())];
         setGenres(uniqueGenres);

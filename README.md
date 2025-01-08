@@ -67,6 +67,31 @@ Chill Gamer is a user-friendly game review platform that allows users to explore
 - **Others**: React Hooks, Context API, Axios, Toast Notifications
 
 ---
+## Dependencies
+
+### Production Dependencies
+The following dependencies are required for the application to run:
+
+- **react**: Core library for building the UI.
+- **react-router-dom**: Routing for React applications.
+- **axios**: For HTTP requests to APIs.
+- **firebase**: Authentication and hosting.
+- **material-ui**: UI components for styling and layout.
+- **tailwindcss**: Utility-first CSS framework for responsive design.
+- **express**: Backend framework for Node.js.
+- **mongodb**: NoSQL database for storing job and user data.
+
+### Dev Dependencies
+The following dependencies are required for development purposes:
+
+- **webpack**: Module bundler.
+- **babel**: JavaScript compiler.
+- **eslint**: Linting tool for JavaScript.
+- **prettier**: Code formatter.
+- **jest**: Testing framework for JavaScript.
+- **dotenv**: Loads environment variables from a `.env` file.
+
+---
 
 ## Installation
 

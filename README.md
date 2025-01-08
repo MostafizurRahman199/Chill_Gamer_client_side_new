@@ -67,29 +67,54 @@ Chill Gamer is a user-friendly game review platform that allows users to explore
 - **Others**: React Hooks, Context API, Axios, Toast Notifications
 
 ---
+
 ## Dependencies
 
 ### Production Dependencies
 The following dependencies are required for the application to run:
 
+- **@material-tailwind/react**: Material Tailwind components for React.
+- **aos**: Animate On Scroll library for adding animations.
+- **axios**: HTTP client for API requests.
+- **firebase**: Backend-as-a-service for authentication, database, and hosting.
+- **localforage**: Library for offline storage.
+- **lottie-react**: For adding Lottie animations in React.
+- **match-sorter**: Utility for filtering and sorting lists.
 - **react**: Core library for building the UI.
-- **react-router-dom**: Routing for React applications.
-- **axios**: For HTTP requests to APIs.
-- **firebase**: Authentication and hosting.
-- **material-ui**: UI components for styling and layout.
-- **tailwindcss**: Utility-first CSS framework for responsive design.
-- **express**: Backend framework for Node.js.
-- **mongodb**: NoSQL database for storing job and user data.
+- **react-copy-to-clipboard**: Enables copy-to-clipboard functionality.
+- **react-countup**: Animates counting for numbers in React.
+- **react-dom**: React package for working with the DOM.
+- **react-fast-marquee**: Scrolling text or image marquee component.
+- **react-helmet**: Manage the document head in React.
+- **react-hot-toast**: Notifications library for React.
+- **react-icons**: Icon library for React.
+- **react-intersection-observer**: Tracks elements as they enter or leave the viewport.
+- **react-router-dom**: Client-side routing library for React.
+- **react-simple-typewriter**: Typewriter animation for React.
+- **react-toastify**: Notifications library for React.
+- **react-tooltip**: Tooltip library for React.
+- **sort-by**: Utility for sorting arrays by property.
+- **sweetalert2**: Beautiful, responsive, customizable JavaScript alert library.
+- **swiper**: Modern touch slider for React.
+- **use-dark-mode**: Hook for managing dark mode in React.
 
 ### Dev Dependencies
 The following dependencies are required for development purposes:
 
-- **webpack**: Module bundler.
-- **babel**: JavaScript compiler.
+- **@eslint/js**: ESLint configuration as a module.
+- **@types/react**: TypeScript type definitions for React.
+- **@types/react-dom**: TypeScript type definitions for React DOM.
+- **@vitejs/plugin-react**: React plugin for Vite.
+- **autoprefixer**: Adds vendor prefixes to CSS rules.
+- **daisyui**: Tailwind CSS components for UI styling.
 - **eslint**: Linting tool for JavaScript.
-- **prettier**: Code formatter.
-- **jest**: Testing framework for JavaScript.
-- **dotenv**: Loads environment variables from a `.env` file.
+- **eslint-plugin-react**: React-specific linting rules for ESLint.
+- **eslint-plugin-react-hooks**: Additional React Hooks linting rules for ESLint.
+- **eslint-plugin-react-refresh**: React Refresh plugin for ESLint.
+- **globals**: Provides a list of global variables.
+- **postcss**: A tool for transforming CSS with JavaScript.
+- **tailwindcss**: Utility-first CSS framework for styling.
+- **vite**: Fast and modern front-end build tool.
 
 ---
 
